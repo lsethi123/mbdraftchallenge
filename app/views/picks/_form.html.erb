@@ -1,0 +1,6 @@
+<%= simple_form_for(@pick, @pick.teams.build) do |f| %>
+  <%= f.collection_select :team_id, Team.all, :id, :name, { prompt: "Select a Team for this pick" }, input_html: { class: "dropdown-toggle" }  %>
+  <%= f.collection_select :draftee_id, Draftee.all, :id, :name, { prompt: "Select a College Prospect for this pick" }, input_html: { class: "dropdown-toggle" }   %>
+  <br>
+  <%= f.button :submit %>
+<% end %>
