@@ -3,4 +3,5 @@
 <p>Bio: <%= @draftee.bio %></p>
 <br/>
 <%= link_to "Back", '/draftees' %>
-<%= link_to "Add New Draftee", new_draftee_path %>
+<%= link_to "Add New Prospect", new_draftee_path %>
+<%= link_to "Delete Prospect", draftee_path(@draftee), method: :delete, data: { confirm: "Are you sure??" } %>

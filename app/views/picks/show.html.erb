@@ -1,0 +1,9 @@
+<h1>Pick #<%= @pick.id %> Profile</h1>
+<h3>Round: <%= @pick.round %></h2>
+<h3>Number: <%= @pick.number %></h3>
+<h3>Notes: <%#=  %> </h3>
+<h3>Your Selection: <%= @pick.team.name %> will pick <%= @pick.team.try(:draftee).try(:info) %></h3>
+<br/>
+<%= link_to "Back", '/picks' %>
+<%= link_to "Edit This Pick", edit_pick_path(@pick) %>
+<%= link_to "Delete Pick", pick_path(@pick), method: :delete, data: { confirm: "Are you sure??" } %>

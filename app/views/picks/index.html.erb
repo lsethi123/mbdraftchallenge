@@ -1,6 +1,11 @@
-<h1>My Picks - Placeholder Text</h1>
+<h1>My Picks</h1>
 <% @picks.each do |pick| %>
-  <h2 class="todo_list_title"><%= pick.team.name %></h2>
-  <p class="todo_list_title"><%#= pick.team.draftee.info %></p>
-  <hr>
+  <h2 class="todo_list_title"><%= link_to pick.team.name, pick %></h2>
+  <p class="todo_list_title">Will Draft <%#= pick.draftee.info %></p>
+  <br/>
 <% end %>
+<br/>
+<br/>
+<%= link_to "Back", 'picks' %>
+<%= link_to "Add New Pick", new_pick_path %>
+

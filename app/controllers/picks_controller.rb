@@ -36,13 +36,14 @@ class PicksController < ApplicationController
   end
 
   def destroy
-
+    @pick.destroy
+    redirect_to "/picks"
   end
 
   private
 
   def picks_params
-    params.require(:pick).permit(:round, :number, :team_id)
+    params.require(:pick).permit(:round, :number, :team_id, :draftee_id)
   end
 
   def find_pick

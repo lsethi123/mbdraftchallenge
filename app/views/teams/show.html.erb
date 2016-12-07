@@ -3,3 +3,5 @@
 <h3>Name: <%= @team.name %></h3>
 <br/>
 <%= link_to "Back", '/teams' %>
+<%= link_to "Edit This Team", edit_team_path(@team) %>
+<%= link_to "Delete", team_path(@team), method: :delete, data: { confirm: "Are you sure??" } %>
