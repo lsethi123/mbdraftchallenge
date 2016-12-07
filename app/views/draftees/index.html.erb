@@ -1,4 +1,4 @@
-<h1>Draftee Index</h1>
+<h1>Prospects</h1>
 <% @draftees.each do |draftee| %>
   <h2 class="todo_list_title"><%= draftee.info %></h2>
   <p class="todo_list_title"><%= draftee.bio %></p>
@@ -7,4 +7,4 @@
 <% end %>
 <br/>
 <%= link_to "Back", 'draftees' %>
-<%= link_to "Add New Draftee", new_draftee_path %>
+<%= link_to "Add New Prospect", new_draftee_path %>
