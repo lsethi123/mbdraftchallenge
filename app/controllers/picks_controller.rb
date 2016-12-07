@@ -17,7 +17,7 @@ class PicksController < ApplicationController
     @pick = Pick.new(picks_params)
 
     if @pick.save
-      redirect_to @pick
+      redirect_to "/picks"
     else
       render "New"
     end
@@ -29,7 +29,7 @@ class PicksController < ApplicationController
 
   def update
     if @pick.update(picks_params)
-      redirect_to @pick
+      redirect_to "/picks"
     else
       render "Edit"
     end

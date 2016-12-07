@@ -1,6 +1,7 @@
 <%= simple_form_for @team do |f| %>
   <%= f.input :city, label: "Enter Team City", input_html: { class: "form-control"} %>
   <%= f.input :name, label: "Enter Team Name", input_html: { class: "form-control"} %>
+  <%= f.input :notes, label: "Enter Team Notes", input_html: { class: "form-control"} %>
 
   <br>
   <%= f.button :submit %>

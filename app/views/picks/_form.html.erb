@@ -1,7 +1,17 @@
 <%= simple_form_for(@pick) do |f| %>
-  <%= f.collection_select :team_id, Team.all, :id, :name, { prompt: "Select a Team for this pick" }, input_html: { class: "dropdown-toggle" }  %>
-  <br/>
-  <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "Select a College Prospect for this pick" }, input_html: { class: "dropdown-toggle" }   %>
-  <br/>
-  <%= f.button :submit %>
+  <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.collection_select :team_id, Team.all, :id, :name, { prompt: "Select a Team for this pick" }, input_html: { class: "dropdown-toggle" }  %>
+    </div>
+    <br/>
+    <div class="form-inputs">
+      <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "Select a College Prospect for this pick" }, input_html: { class: "dropdown-toggle" }   %>
+      <%= f.input :number, hint: 'The Prospects Overall Pick Number', collection: 1..64 %>
+    </div>
+    <br/>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+
 <% end %>

@@ -1,11 +1,42 @@
 <h1>My Picks</h1>
-<% @picks.each do |pick| %>
-  <h2 class="todo_list_title"><%= link_to pick.team.name, pick %></h2>
-  <p class="todo_list_title">Will Draft <%#= pick.draftee.info %></p>
-  <br/>
-<% end %>
+
+<table class="table" align="left">
+
+  <head>
+      <tr>
+        <th><h4>Team City/Name</h4></th>
+        <th><h4>Prediction</h4></th>
+        <th><h4>Controls</h4></th>
+      </tr>
+  </head>
+
+  <tbody>
+    <div class="row container">
+      <% @picks.each do |pick| %>
+        <tr>
+          <td>
+            <h4 class="todo_list_title"><%= link_to pick.team.city, pick %> <%= link_to pick.team.name, pick %></h4>
+          </td>
+          <td>
+            <p class="todo_list_title">Will Draft <%= pick.draftee.info %> #<%= pick.number %> overall.</p>
+          </td>
+          <td>
+            <div class="btn-group btn-group-lg">
+              <%= link_to "Edit This Pick", edit_pick_path(pick), class: "btn btn-sm btn-primary" %>
+            </div>
+            <div class="btn-group btn-group-lg">
+              <%= link_to "Delete This Pick", pick_path(pick), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure??" } %>
+            </div>
+          </td>
+            <br/>
+        </tr>
+      <% end %>
+    </div>
+  </tbody>
+</table>
+
 <br/>
 <br/>
-<%= link_to "Back", 'picks' %>
-<%= link_to "Add New Pick", new_pick_path %>
+<div class="btn-group btn-group-md"><%#= link_to "Back", 'picks', class: "btn btn-sm btn-info" %></div>
+<div class="btn-group btn-group-md"><%= link_to "Add New Pick", new_pick_path, class: "btn btn-sm btn-warning" %></div>
 

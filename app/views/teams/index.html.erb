@@ -1,7 +1,8 @@
 <h1>Teams</h1>
 <% @teams.each do |team| %>
-  <h2 class="todo_list_title"><%= link_to team.city, team %></h2>
-  <p class="todo_list_title"><%= link_to team.name, team %></p>
+  <h2 class="todo_list_title"><%= link_to team.city, team %> <small><%= team.name %></small></h2>
+  <p class="todo_list_title"><%#= link_to team.name, team %></p>
+  <p class="todo_list_title"><%= team.notes %></p>
   <%= link_to "Edit This Team", edit_team_path(team), class: "btn btn-sm btn-default" %>
   <br/>
 <% end %>

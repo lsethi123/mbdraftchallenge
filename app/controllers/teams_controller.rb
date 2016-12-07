@@ -17,9 +17,9 @@ class TeamsController < ApplicationController
     @team = Team.new(teams_params)
 
     if @team.save
-      redirect_to @team
+      redirect_to "/teams/new", notice: "The team's been added! Add More?"
     else
-      render "New"
+      render :new
     end
   end
 
@@ -29,7 +29,7 @@ class TeamsController < ApplicationController
 
   def update
     if @team.update(teams_params)
-      redirect_to @team
+      redirect_to :teams
     else
       render "Edit"
     end
@@ -43,7 +43,7 @@ class TeamsController < ApplicationController
   private
 
   def teams_params
-    params.require(:team).permit( :name, :city )
+    params.require(:team).permit( :name, :city, :notes )
   end
 
   def find_team
