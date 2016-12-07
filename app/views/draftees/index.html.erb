@@ -1,0 +1,10 @@
+<h1>Draftee Index</h1>
+<% @draftees.each do |draftee| %>
+  <h2 class="todo_list_title"><%= draftee.info %></h2>
+  <p class="todo_list_title"><%= draftee.bio %></p>
+  <%= link_to "Edit This Draftee", edit_draftee_path(draftee), class: "btn btn-sm btn-default" %>
+  <br/>
+<% end %>
+<br/>
+<%= link_to "Back", 'draftees' %>
+<%= link_to "Add New Draftee", new_draftee_path %>

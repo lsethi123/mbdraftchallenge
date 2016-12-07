@@ -1,0 +1,10 @@
+<h1>Team Index</h1>
+<% @teams.each do |team| %>
+  <h2 class="todo_list_title"><%= team.city %></h2>
+  <p class="todo_list_title"><%= team.name %></p>
+  <%= link_to "Edit This Team", edit_team_path(team), class: "btn btn-sm btn-default" %>
+  <br/>
+<% end %>
+<br/>
+<%= link_to "Back", 'teams' %>
+<%= link_to "Add New Team", new_team_path %>

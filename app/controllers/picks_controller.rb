@@ -1,4 +1,5 @@
 class PicksController < ApplicationController
+  before_action :find_pick, only: [:show, :edit, :update, :destroy]
 
   def index
     @picks = Pick.all
@@ -29,7 +30,7 @@ class PicksController < ApplicationController
   def update
     if @pick.update(picks_params)
       redirect_to @pick
-    end
+    else
       render "Edit"
     end
   end
