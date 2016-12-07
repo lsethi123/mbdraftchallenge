@@ -1,6 +1,20 @@
 <%= simple_form_for @draftee do |f| %>
-  <%= f.input :info, label: "Enter Prospect's Info (Name, Position, College)", input_html: { class: "form-control"} %>
-  <%= f.input :bio, label: "Enter Prospect's Bio", input_html: { class: "form-control"} %>
+
+<div class="row isotope-container">
+  <div class="col-xs-12 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-0 ">
+    <div class="form-inputs">
+      <%= f.input :info, label: "Enter Prospect's Info (Name, Position, College)", input_html: { class: "form-control"} %>
+      </div>
+    <div class="form-inputs">
+      <%= f.input :bio, label: "Enter Prospect's Bio", input_html: { class: "form-control"} %>
+    </div>
   <br>
-  <%= f.button :submit %>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+
 <% end %>
+  </div>
+</div>
+
+</br>

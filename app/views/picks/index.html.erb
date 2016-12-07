@@ -1,42 +1,67 @@
-<h1>My Picks</h1>
-
-<table class="table" align="left">
-
-  <head>
-      <tr>
-        <th><h4>Team City/Name</h4></th>
-        <th><h4>Prediction</h4></th>
-        <th><h4>Controls</h4></th>
-      </tr>
-  </head>
-
-  <tbody>
-    <div class="row container">
-      <% @picks.each do |pick| %>
-        <tr>
-          <td>
-            <h4 class="todo_list_title"><%= link_to pick.team.city, pick %> <%= link_to pick.team.name, pick %></h4>
-          </td>
-          <td>
-            <p class="todo_list_title">Will Draft <%= pick.draftee.info %> #<%= pick.number %> overall.</p>
-          </td>
-          <td>
-            <div class="btn-group btn-group-lg">
-              <%= link_to "Edit This Pick", edit_pick_path(pick), class: "btn btn-sm btn-primary" %>
-            </div>
-            <div class="btn-group btn-group-lg">
-              <%= link_to "Delete This Pick", pick_path(pick), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure??" } %>
-            </div>
-          </td>
-            <br/>
-        </tr>
-      <% end %>
+<div class="jumbotron">
+  <div class="container">
+    <div class="col-xs-12 col-sm-12 col-md-12 ">
+      <h1>The Draft Board</h1>
+      <h3>Match NFL prospect with teams for a chance to win $10,000!</h3>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+<!--       <h4>Playing is easy:</h4>
+        <p>1. Register</p>
+        <p>2. Complete 1st and 2nd round picks by the deadline</p>
+        <p>3. Beat the competition to win 10 Large</p> -->
     </div>
-  </tbody>
-</table>
+  </div>
+</div>
+
+<!-- <div class="container"> -->
+
+  <div class="panel panel-default">
+    <div class="panel-heading"></div>
+      <div class="row isotope-container">
+        <div class="col-xs-12 col-sm-12 col-md-12 ">
+
+          <table class="table" align="left">
+            <head>
+                <tr>
+                  <th><h4>Order</h4></th>
+                  <th><h4>Team</h4></th>
+                  <th><h4>Prediction</h4></th>
+                  <th><h4>Controls</h4></th>
+                </tr>
+            </head>
+
+            <tbody>
+                <% @picks.each do |pick| %>
+                <tr>
+                  <td>
+                    <h4 class="todo_list_title"><%= pick.order %></h4>
+                  </td>
+                  <td>
+                    <h4 class="todo_list_title"><%= link_to pick.team.city, pick %> <%= link_to pick.team.name, pick %></h4>
+                  </td>
+                  <td>
+                    <p class="todo_list_title">Will Draft <%= link_to pick.draftee.info, '@draftee' %> #<%= pick.number %> overall.</p>
+                  </td>
+                  <td>
+                    <div class="btn-group btn-group-lg">
+                      <%= link_to "Edit This Pick", edit_pick_path(pick), class: "btn btn-sm btn-primary" %>
+                    </div>
+                    <div class="btn-group btn-group-lg">
+                      <%= link_to "Delete This Pick", pick_path(pick), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure??" } %>
+                    </div>
+                  </td>
+                </tr>
+                <% end %>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+  </div>
+<!-- </div> -->
 
 <br/>
 <br/>
-<div class="btn-group btn-group-md"><%#= link_to "Back", 'picks', class: "btn btn-sm btn-info" %></div>
+
 <div class="btn-group btn-group-md"><%= link_to "Add New Pick", new_pick_path, class: "btn btn-sm btn-warning" %></div>
 

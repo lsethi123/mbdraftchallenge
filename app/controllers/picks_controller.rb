@@ -29,7 +29,7 @@ class PicksController < ApplicationController
 
   def update
     if @pick.update(picks_params)
-      redirect_to "/picks"
+      redirect_to "/picks", notice: "This Pick has been successfully edited."
     else
       render "Edit"
     end
@@ -43,7 +43,7 @@ class PicksController < ApplicationController
   private
 
   def picks_params
-    params.require(:pick).permit(:round, :number, :team_id, :draftee_id)
+    params.require(:pick).permit(:round, :number, :team_id, :draftee_id, :order)
   end
 
   def find_pick
