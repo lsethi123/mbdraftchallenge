@@ -1,4 +1,5 @@
 <%= simple_form_for @team do |f| %>
+  <%= f.input :helmet, label: "Upload the Team Helmet", input_html: { class: "form-control"} %>
   <%= f.input :city, label: "Enter Team City", input_html: { class: "form-control"} %>
   <%= f.input :name, label: "Enter Team Name", input_html: { class: "form-control"} %>
   <%= f.input :notes, label: "Enter Team Notes", input_html: { class: "form-control"} %>

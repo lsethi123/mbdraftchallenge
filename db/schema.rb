@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207210833) do
+ActiveRecord::Schema.define(version: 20161207233405) do
 
   create_table "actuals", force: :cascade do |t|
     t.string   "info"
@@ -40,9 +40,14 @@ ActiveRecord::Schema.define(version: 20161207210833) do
     t.string   "name"
     t.string   "city"
     t.string   "logo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.text     "notes"
+    t.string   "helmet"
+    t.string   "helmet_file_name"
+    t.string   "helmet_content_type"
+    t.integer  "helmet_file_size"
+    t.datetime "helmet_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

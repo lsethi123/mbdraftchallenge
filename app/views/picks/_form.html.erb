@@ -5,11 +5,13 @@
       <div class="row isotope-container">
         <div class="col-xs-12 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-0 ">
           <div class="form-inputs">
-            <%= f.input :order, hint: 'The Teams Draft Position', collection: 1..64 %>
+            <%= f.hidden_field :order %>
+            <%#= f.input :order, hint: 'The Teams Draft Position', collection: 1..64 %>
           </div>
           <br/>
           <div class="form-inputs">
-            <%= f.collection_select :team_id, Team.all, :id, :name, { prompt: "Select a Team for this pick" }, input_html: { class: "dropdown-toggle" }  %>
+            <%= f.hidden_field :team_id %>
+            <%#= f.collection_select :team_id, Team.all, :id, :name, { prompt: "Select a Team for this pick" }, input_html: { class: "dropdown-toggle" }  %>
           </div>
           <br/>
           <div class="form-inputs">
