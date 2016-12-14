@@ -1,0 +1,8 @@
+<h1>Show Mypick</h1>
+
+<h1>Pick #<%= @mypick.id %></h1>
+<p><%= @mypick.draftee.info %></p>
+<br/>
+<%= link_to "All Picks", '/mypicks' %>
+<%= link_to "Edit This Mypick", edit_mypick_path(@mypick) %>
+<%= link_to "Delete Pick", mypick_path(@mypick), method: :delete, data: { confirm: "Are you sure??" } %>

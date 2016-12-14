@@ -1,13 +1,10 @@
 <div class="jumbotron">
   <div class="container">
     <div class="col-xs-12 col-sm-12 col-md-12 ">
-      <h1>The Draft Board</h1>
-      <h3>Match NFL prospect with teams for a chance to win $10,000!</h3>
+      <h1>The Pre-Draft Board</h1>
+      <h3>Match NFL prospects with teams for a chance to win $10,000!</h3>
+      <p>Sign up for free. Earn points with each correct team pick.</p>
       <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-<!--       <h4>Playing is easy:</h4>
-        <p>1. Register</p>
-        <p>2. Complete 1st and 2nd round picks by the deadline</p>
-        <p>3. Beat the competition to win 10 Large</p> -->
     </div>
   </div>
 </div>
@@ -25,7 +22,7 @@
                   <th><h4>Order</h4></th>
                   <th></th>
                   <th><h4>Team</h4></th>
-                  <th><h4>Prediction</h4></th>
+                  <th><h4>Projected Order</h4></th>
                   <th><h4>Controls</h4></th>
                 </tr>
             </head>
@@ -42,17 +39,32 @@
                   <td>
                     <h4 class="todo_list_title"><%= link_to pick.team.city, pick %> <%= link_to pick.team.name, pick %></h4>
                   </td>
+
                   <td>
-                    <p class="todo_list_title">will draft <%= link_to pick.draftee.info, '@draftee' %> #<%= pick.number.ordinalize %> overall.</p>
+                    <p class="todo_list_title"><%= link_to pick.draftee.info, pick.draftee %> #<%= pick.number.ordinalize %> overall.</p>
                   </td>
                   <td>
                     <div class="btn-group btn-group-md">
-                      <%= link_to "Edit This Pick", edit_pick_path(pick), class: "btn btn-sm btn-primary" %>
+                      <%#= link_to "Edit This Pick", edit_pick_path(pick), class: "btn btn-sm btn-primary" %>
                     </div>
+
                     <div class="btn-group btn-group-md">
-                      <%= link_to "Delete This Pick", pick_path(pick), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure??" } %>
+                      <%= link_to icon('edit'), pick, class: "btn btn-lg btn-success" %>
+                    </div>
+
+                    <div class="btn-group btn-group-md">
+                      <%#= link_to "Delete This Pick", pick_path(pick), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure??" } %>
+                    </div>
+
+                    <div class="btn-group btn-group-md">
+                      <%#= link_to "Save This Pick", pick_path(pick), class: "btn btn-sm btn-warning", method: :patch, data: { confirm: "This pick will be added to your draft board!" } %>
                     </div>
                   </td>
+                  <td>
+<!--                     <div class="btn-group btn-group-md">
+                      <%#= link_to "Lock it In!", pick_path(pick), class: "btn btn-sm btn-success", method: :delete, data: { confirm: "Are you sure??" } %>
+                    </div>
+                  </td> -->
                 </tr>
                 <% end %>
             </tbody>

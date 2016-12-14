@@ -1,8 +1,16 @@
 <h1>Pick #<%= @pick.id %> Profile</h1>
+<h3>User: <%#= @pick.user.email %></h3>
 <h3>Round: <%= @pick.round %></h2>
 <h3>Number: <%= @pick.number %></h3>
 <h3>Notes: <%#=  %> </h3>
 <h3>Your Selection: <%= @pick.team.name %> will pick <%= @pick.draftee.info %></h3>
+<br/>
+<br/>
+<p>Add This Pick to Your Draft Board:</p>
+<div class="btn-group btn-group-md">
+  <%= link_to icon('plus'), new_mypick_path( :pick_id => params[:id] ), class: "btn btn-lg btn-success", method: :get, data: { confirm: "Are you ready to lock in this pick?" } %>
+</div>
+<br/>
 <br/>
 <%= link_to "All Picks", '/picks' %>
 <%= link_to "Edit This Pick", edit_pick_path(@pick) %>

@@ -18,15 +18,23 @@
     <nav class="navbar navbar-default ">
       <div class="container">
         <div class="navbar-header">
-          <%= link_to "MB Draft Challenge |BETA|", root_path, class: "navbar-brand" %>
+          <%= link_to "MB Draft Challenge", root_path, class: "navbar-brand" %>
         </div>
-        <%= link_to "Team Needs", teams_path, class: "navbar-brand" %>
-        <%= link_to "Top Draft Prospects", draftees_path, class: "navbar-brand"  %>
-        <%= link_to "Your Picks", picks_path, class: "navbar-brand"  %>
+        <%= link_to "Teams", teams_path, class: "navbar-brand" %>
+        <%= link_to "Prospects", draftees_path, class: "navbar-brand"  %>
+        <%= link_to "Pre-Draft", picks_path, class: "navbar-brand"  %>
+        <%= link_to "Draft Board", mypicks_path, class: "navbar-brand" %>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Add Team", new_team_path, class: "navbar-brand"  %></li>
-          <li><%= link_to "Add Prospect", new_draftee_path, class: "navbar-brand" %></li>
-          <li><%= link_to "Make Picks", new_pick_path, class: "navbar-brand" %></li>
+          <li><%= link_to "+ Teams", new_team_path, class: "navbar-brand"  %></li>
+          <li><%= link_to "+ Prospects", new_draftee_path, class: "navbar-brand" %></li>
+          <li><%#= link_to "Make Picks", new_pick_path, class: "navbar-brand" %></li>
+          <% if current_user.present? %>
+                <li><%= link_to current_user.email, edit_user_registration_path %></li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, :method => "delete" %></li>
+              <% else  %>
+                <li><%= link_to "Sign In", new_user_session_path %></li>
+                <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              <% end %>
         </ul>
 
       </div>

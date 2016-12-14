@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207233405) do
+ActiveRecord::Schema.define(version: 20161212180650) do
 
   create_table "actuals", force: :cascade do |t|
     t.string   "info"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20161207233405) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "mypicks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "pick_id"
+    t.integer  "user_id"
+  end
+
   create_table "picks", force: :cascade do |t|
     t.boolean  "round"
     t.integer  "number"
@@ -34,7 +41,10 @@ ActiveRecord::Schema.define(version: 20161207233405) do
     t.integer  "team_id"
     t.integer  "draftee_id"
     t.integer  "order"
+    t.integer  "user_id"
   end
+
+  add_index "picks", ["user_id"], name: "index_picks_on_user_id"
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"

@@ -1,0 +1,22 @@
+<%= simple_form_for(@mypick) do |f| %>
+  <%= f.error_notification %>
+
+    <!-- <div class="row"> -->
+      <div class="row isotope-container">
+        <div class="col-xs-12 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-0 ">
+          <div class="form-inputs">
+            <%= f.hidden_field :pick_id %>
+          </div>
+          <div class="form-inputs">
+            <%= f.hidden_field :user_id %>
+          </div>
+          <br/>
+          <div class="form-actions">
+            <%= f.button :submit %>
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+
+<% end %>
+</br>

@@ -3,6 +3,12 @@ class PicksController < ApplicationController
 
   def index
     @picks = Pick.all
+
+    # if current_user.present?
+    #   @picks = current_user.picks
+    # else
+    #   @picks = Pick.all
+    # end
   end
 
   def show
@@ -10,11 +16,11 @@ class PicksController < ApplicationController
   end
 
   def new
-    @pick = Pick.new
+    @pick = current_user.picks.build
   end
 
   def create
-    @pick = Pick.new(picks_params)
+    @pick = current_user.picks.build(picks_params)
 
     if @pick.save
       redirect_to "/picks"
@@ -43,7 +49,7 @@ class PicksController < ApplicationController
   private
 
   def picks_params
-    params.require(:pick).permit(:round, :number, :team_id, :draftee_id, :order)
+    params.require(:pick).permit(:round, :number, :team_id, :draftee_id, :order )
   end
 
   def find_pick
