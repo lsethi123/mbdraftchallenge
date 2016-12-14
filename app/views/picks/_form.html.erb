@@ -5,12 +5,10 @@
       <div class="row isotope-container">
         <div class="col-xs-12 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-0 ">
           <div class="form-inputs">
-            <%#= f.hidden_field :order %>
-            <%= f.hidden_field :order, hint: 'The Teams Draft Position', collection: 1..64 %>
+            <%= f.input :order, hint: 'The Teams Draft Position', collection: 0..64 %>
           </div>
           <br/>
           <div class="form-inputs">
-            <%#= f.hidden_field :team_id %>
             <%= f.collection_select :team_id, Team.all, :id, :name, { prompt: "Select a Team for this pick" }, input_html: { class: "dropdown-toggle" }  %>
           </div>
           <br/>
@@ -18,7 +16,7 @@
             <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "Select a College Prospect for this pick" }, input_html: { class: "dropdown-toggle" }   %>
           </div>
           <div class="form-inputs">
-            <%= f.hidden_field :number, hint: 'The Prospects Overall Pick Number', collection: 1..64 %>
+            <%= f.input :number, hint: 'The Prospects Overall Pick Number', collection: 0..64 %>
           </div>
           <br/>
           <div class="form-actions">

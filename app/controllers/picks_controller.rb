@@ -4,11 +4,11 @@ class PicksController < ApplicationController
   def index
     @picks = Pick.all
 
-    # if current_user.present?
-    #   @picks = current_user.picks
-    # else
-    #   @picks = Pick.all
-    # end
+    if current_user.present?
+      @picks = current_user.picks
+    else
+      @picks = Pick.all
+    end
   end
 
   def show
