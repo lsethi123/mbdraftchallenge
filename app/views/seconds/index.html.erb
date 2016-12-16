@@ -1,0 +1,10 @@
+<h1>2nd Round Prospects</h1>
+<% @seconds.each do |second| %>
+  <h2 class="todo_list_title"><%= link_to second.info, second %></h2>
+  <p class="todo_list_title"><%= second.bio %></p>
+  <%= link_to "Edit This 2nd Round Pick", edit_second_path(second), class: "btn btn-sm btn-default" %>
+  <br/>
+<% end %>
+<br/>
+<%= link_to "Back", 'seconds' %>
+<%= link_to "Add New Prospect", new_second_path %>

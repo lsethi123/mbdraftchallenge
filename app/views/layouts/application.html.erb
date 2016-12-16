@@ -26,7 +26,8 @@
         <%= link_to "Draft Board", mypicks_path, class: "navbar-brand" %>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "+ Teams", new_team_path, class: "navbar-brand"  %></li>
-          <li><%= link_to "+ Prospects", new_draftee_path, class: "navbar-brand" %></li>
+          <li><%= link_to "+ 1R Picks", new_draftee_path, class: "navbar-brand" %></li>
+          <li><%= link_to "+ 2R Picks", new_second_path, class: "navbar-brand" %></li>
           <li><%#= link_to "Make Picks", new_pick_path, class: "navbar-brand" %></li>
           <% if current_user.present? %>
                 <li><%= link_to current_user.email, edit_user_registration_path %></li>

@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :draftees
   resources :teams
   resources :picks
-
+  resources :actuals
+  resources :seconds
 
   devise_for :users
   root "picks#index"

@@ -1,0 +1,20 @@
+<%= simple_form_for @second do |f| %>
+
+<div class="row isotope-container">
+  <div class="col-xs-12 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-0 ">
+    <div class="form-inputs">
+      <%= f.input :info, label: "Enter 2nd Round Prospect's Info (Name, Position, College)", input_html: { class: "form-control"} %>
+      </div>
+    <div class="form-inputs">
+      <%= f.input :bio, label: "Enter 2nd Round Prospect's Bio", input_html: { class: "form-control"} %>
+    </div>
+  <br>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+
+<% end %>
+  </div>
+</div>
+
+</br>

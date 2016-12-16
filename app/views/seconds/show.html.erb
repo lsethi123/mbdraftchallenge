@@ -1,0 +1,7 @@
+<h1>2nd Round Draftee Profile</h1>
+<h2><%= @second.info %></h2>
+<p>Bio: <%= @second.bio %></p>
+<br/>
+<%= link_to "Back", '/seconds' %>
+<%= link_to "Add New Prospect", new_second_path %>
+<%= link_to "Delete Prospect", second_path(@second), method: :delete, data: { confirm: "Are you sure??" } %>

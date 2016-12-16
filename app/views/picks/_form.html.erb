@@ -1,7 +1,7 @@
 <%= simple_form_for(@pick) do |f| %>
   <%= f.error_notification %>
 
-    <!-- <div class="row"> -->
+   <!-- <div class="row"> -->
       <div class="row isotope-container">
         <div class="col-xs-12 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-0 ">
           <div class="form-inputs">
@@ -13,10 +13,19 @@
           </div>
           <br/>
           <div class="form-inputs">
-            <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "Select a College Prospect for this pick" }, input_html: { class: "dropdown-toggle" }   %>
+            <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "Select a College Prospect for this 1st round pick" }, input_html: { class: "dropdown-toggle" }   %>
+<!--           </div>
+          <br/>
+          <div class="form-inputs"> -->
+            <%= f.input :number, hint: 'The Prospects Overall Pick Number', collection: 0..32 %>
           </div>
+          <br/>
           <div class="form-inputs">
-            <%= f.input :number, hint: 'The Prospects Overall Pick Number', collection: 0..64 %>
+            <%= f.collection_select :second_id, Second.all, :id, :info, { prompt: "Select a College Prospect for this 2nd round pick" }, input_html: { class: "dropdown-toggle" }   %>
+<!--           </div>
+          <br/>
+          <div class="form-inputs"> -->
+            <%= f.input :num2, hint: 'The 2nd Round Prospects Overall Pick Number', collection: 33..64 %>
           </div>
           <br/>
           <div class="form-actions">

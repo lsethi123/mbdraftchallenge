@@ -2,7 +2,7 @@ class PicksController < ApplicationController
   before_action :find_pick, only: [:show, :edit, :update, :destroy]
 
   def index
-    @picks = Pick.all
+    # @picks = Pick.all
 
     if current_user.present?
       @picks = current_user.picks
@@ -23,7 +23,7 @@ class PicksController < ApplicationController
     @pick = current_user.picks.build(picks_params)
 
     if @pick.save
-      redirect_to "/picks"
+      redirect_to "/picks", notice: "This Picks just been created."
     else
       render "New"
     end
@@ -49,7 +49,7 @@ class PicksController < ApplicationController
   private
 
   def picks_params
-    params.require(:pick).permit(:round, :number, :team_id, :draftee_id, :order )
+    params.require(:pick).permit(:round, :number, :team_id, :draftee_id, :order, :second_id, :num2 )
   end
 
   def find_pick
