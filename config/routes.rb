@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :seconds
 
   devise_for :users
-  root "picks#index"
+  root :to => "picks#index"
 end
