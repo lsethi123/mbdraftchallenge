@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161216063121) do
+ActiveRecord::Schema.define(version: 20161218165805) do
 
   create_table "actuals", force: :cascade do |t|
     t.string   "info"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20161216063121) do
     t.text     "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "info2"
   end
 
   create_table "mypicks", force: :cascade do |t|

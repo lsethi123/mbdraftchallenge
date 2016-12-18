@@ -1,7 +1,7 @@
 <h1>Team Profile</h1>
-<p><%= image_tag @team.helmet.url %></p>
-<h2>City: <%= @team.city %></h2>
-<h3>Name: <%= @team.name %></h3>
+<p><%= image_tag @team.helmet.url, :height => '100px', :width => '100px' %></p>
+<h2><%= @team.city %><small><%= @team.name %></small></h2>
+<p><%= @team.notes %></p>
 <br/>
 <%= link_to "Back", '/teams' %>
 <%= link_to "Edit This Team", edit_team_path(@team) %>
