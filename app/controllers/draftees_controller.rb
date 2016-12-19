@@ -42,7 +42,7 @@ class DrafteesController < ApplicationController
   private
 
   def draftees_params
-    params.require(:draftee).permit( :info, :bio, :info2 )
+    params.require(:draftee).permit( :info, :bio )
   end
 
   def find_draftee

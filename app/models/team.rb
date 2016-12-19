@@ -1,6 +1,7 @@
 class Team < ActiveRecord::Base
   has_many :picks
   has_many :draftees
+  has_many :actuals
   has_many :seconds
   has_many :mypicks
 

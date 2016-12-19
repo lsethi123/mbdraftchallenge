@@ -1,0 +1,9 @@
+<h1>2017 Draft Class</h1>
+<% @actuals.each do |actual| %>
+  <h2 class="todo_list_title">#<%= actual.number %>. <%= actual.draftee.info %></h2>
+  <%= link_to "Edit Pick", edit_actual_path(actual), class: "btn btn-sm btn-default" %>
+  <br/>
+<% end %>
+<br/>
+<%= link_to "Back", 'actuals' %>
+<%= link_to "Add New Draft Pick", new_actual_path %>

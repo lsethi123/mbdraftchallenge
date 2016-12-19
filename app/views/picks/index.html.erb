@@ -19,6 +19,7 @@
            <%= link_to "Add Teams", new_team_path, class: "navbar-brand"  %>
            <%= link_to "Add 1st Rounders", new_draftee_path, class: "navbar-brand" %>
            <%= link_to "Add 2nd Rounders", new_second_path, class: "navbar-brand" %>
+           <%= link_to "Add Draft Picks", new_actual_path, class: "navbar-brand"  %>
           </div>
             <%#= link_to "Make Picks", new_pick_path, class: "navbar-brand" %>
         <% end %>
@@ -64,9 +65,21 @@
                   </td>
 
                   <% if current_user.present? %>
-                    <td>
-                        <!-- <p><font color='green'><i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> <span class="badge" style="color:white">5</span></a></font></p> -->
-                    </td>
+                    <!-- Math Logic -->
+                    <%# if pick.draftee.info != actual.draftee.info %>
+                      <td>
+                        <p><span class="badge" style="color:white">0</span></p>
+
+                    <%# elsif pick.draftee.info == actual.draftee.info %>
+
+                          <p><span class="badge" style="color:white">5</span></p>
+                        </td>
+                      <%# elsif pick.draftee.info == pick.actual.info && pick.second.info == pick. %>
+                    <%# end %>
+
+                    <!-- <td>
+                      <p><span class="badge" style="color:white">10</span></p>
+                    </td> -->
 
                     <td>
                       <div class="btn-group btn-group-md">

@@ -1,0 +1,7 @@
+<h1>1st Round Draft Pick Profile</h1>
+<h2><%= @actual.number %>. <%= @actual.draftee.info %></h2>
+
+<br/>
+<%= link_to "Back", '/actuals' %>
+<%= link_to "Add New Prospect", new_actual_path %>
+<%= link_to "Delete Prospect", actual_path(@actual), method: :delete, data: { confirm: "Are you sure??" } %>
