@@ -15,3 +15,10 @@
 <%= link_to "All Picks", '/picks' %>
 <%= link_to "Edit This Pick", edit_pick_path(@pick) %>
 <%= link_to "Delete Pick", pick_path(@pick), method: :delete, data: { confirm: "Are you sure??" } %>
+
+<div class="container">
+ <h1>Draft Board</h1>
+  <% @pick.actuals.each do |actual| %>
+    <p><%= actual.info %></p>
+  <% end %>
+</div>

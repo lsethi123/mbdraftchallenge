@@ -7,7 +7,9 @@
           <div class="form-inputs">
             <%= f.input :number, hint: 'The Draft Picks Overall Pick Number', collection: 0..64 %>
             <br/>
-            <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "Select the actual first round pick here." }, input_html: { class: "dropdown-toggle" }   %>
+            <%= f.collection_select :team_id, Team.all, :id, :name, { promt: "Use the dropdown access team."} %>
+            <br/>
+            <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "Use the dropdown to access the draft pick." }, input_html: { class: "dropdown-toggle" }   %>
           </div>
           <br/>
           <div class="form-actions">

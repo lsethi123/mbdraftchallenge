@@ -2,8 +2,6 @@ class PicksController < ApplicationController
   before_action :find_pick, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @picks = Pick.all
-
     if current_user.present?
       @picks = current_user.picks
     else
@@ -46,10 +44,11 @@ class PicksController < ApplicationController
     redirect_to "/picks"
   end
 
+
   private
 
   def picks_params
-    params.require(:pick).permit(:round, :number, :team_id, :draftee_id, :order, :second_id, :num2 )
+    params.require(:pick).permit(:round, :number, :team_id, :draftee_id, :order, :second_id, :num2, :actual_id )
   end
 
   def find_pick

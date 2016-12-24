@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219040157) do
+ActiveRecord::Schema.define(version: 20161224052044) do
 
   create_table "actuals", force: :cascade do |t|
     t.string   "info"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20161219040157) do
     t.datetime "updated_at", null: false
     t.integer  "draftee_id"
     t.integer  "number"
+    t.integer  "team_id"
+    t.integer  "pick_id"
   end
 
   create_table "draftees", force: :cascade do |t|
@@ -46,6 +48,7 @@ ActiveRecord::Schema.define(version: 20161219040157) do
     t.integer  "user_id"
     t.integer  "second_id"
     t.integer  "num2"
+    t.integer  "actual_id"
   end
 
   add_index "picks", ["user_id"], name: "index_picks_on_user_id"
@@ -69,6 +72,9 @@ ActiveRecord::Schema.define(version: 20161219040157) do
     t.string   "helmet_content_type"
     t.integer  "helmet_file_size"
     t.datetime "helmet_updated_at"
+    t.string   "drafted"
+    t.integer  "draftee_id"
+    t.integer  "second_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -2,8 +2,9 @@
 <% @teams.each do |team| %>
 
   <h2 class="todo_list_title"><%= link_to (image_tag team.helmet.url(:thumb)), team %> <%= link_to team.city, team %> <small><%= team.name %></small></h2>
-  <p class="todo_list_title"><%#= link_to team.name, team %></p>
   <p class="todo_list_title"><%= team.notes %></p>
+  <p class="todo_list_title">2017 1st Round Draft Choice: <%= team.draftee.try(:info) %></p>
+  <p class="todo_list_title">2017 2nd Round Draft Choice: <%= team.second.try(:info) %></p>
   <%= link_to "Edit This Team", edit_team_path(team), class: "btn btn-sm btn-default" %>
   <br/>
 <% end %>

@@ -42,7 +42,7 @@ class ActualsController < ApplicationController
   private
 
   def actuals_params
-    params.require(:actual).permit( :info, :number, :draftee_id )
+    params.require(:actual).permit( :info, :number, :draftee_id, :team_id, :pick_id )
   end
 
   def find_actual

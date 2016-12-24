@@ -28,8 +28,10 @@
     </div>
   </div>
 </div>
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="panel panel-default">
-    <div class="panel-heading"></div>
+    <div class="panel-heading">Your Draft Board</div>
       <div class="row isotope-container">
         <div class="col-xs-12 col-sm-12 col-md-12 ">
 
@@ -48,40 +50,42 @@
             <tbody>
                 <% @picks.each do |pick| %>
                 <tr>
+<!-- ORDER -->
                   <td>
                     <h4 class="todo_list_title"><%= pick.order %></h4>
                   </td>
+<!-- HELMET -->
                   <td>
                     <%= link_to (image_tag pick.team.helmet.url, :height => '25px', :width => '25px' ) %>
                   </td>
+<!-- CITY/TEAM -->
                   <td>
                     <h4 class="todo_list_title"><%= link_to pick.team.city, pick.team %> <%= link_to pick.team.name, pick.team %></h4>
                   </td>
-
+<!-- PICKS -->
                   <td>
                     <p class="todo_list_title"><%= link_to pick.draftee.info, pick.draftee %> to go in the 1st round @ #<%= pick.number.ordinalize %> overall.</p>
 
                     <p class="todo_list_title"><%= link_to pick.second.info, pick.second %> to go in the 2nd round @ #<%= pick.num2.ordinalize %> overall.</p>
                   </td>
 
-                  <% if current_user.present? %>
-                    <!-- Math Logic -->
-                    <%# if pick.draftee.info != actual.draftee.info %>
-                      <td>
+<!-- SCORE -->
+                  <td>
+                      <% if pick.team.draftee.info == pick.draftee.info %>
+                        <p><span class="badge" style="color:white">5</span></p>
+                      <% else %>
                         <p><span class="badge" style="color:white">0</span></p>
+                      <% end %>
 
-                    <%# elsif pick.draftee.info == actual.draftee.info %>
-
-                          <p><span class="badge" style="color:white">5</span></p>
-                        </td>
-                      <%# elsif pick.draftee.info == pick.actual.info && pick.second.info == pick. %>
-                    <%# end %>
-
-                    <!-- <td>
-                      <p><span class="badge" style="color:white">10</span></p>
-                    </td> -->
+                      <% if pick.team.second.info == pick.second.info  %>
+                        <p><span class="badge" style="color:white">5</span></p>
+                      <% else %>
+                        <p><span class="badge" style="color:white">0</span></p>
+                      <% end %>
+                  </td>
 
                     <td>
+                  <% if current_user.present? %>
                       <div class="btn-group btn-group-md">
                         <%= link_to icon('edit'), edit_pick_path(pick), class: "btn btn-sm btn-primary" %>
                       </div>
@@ -108,11 +112,13 @@
                 </tr>
                 <% end %>
             </tbody>
+
           </table>
 
         </div>
       </div>
 
   </div>
+</div>
 <!-- </div> -->
 
