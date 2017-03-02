@@ -84,6 +84,7 @@
                       <% else %>
                         <p><span class="badge" style="color:white">0</span></p>
                       <% end %>
+                        <p><span class="badge" style="color:white"><%#= pick.winner %></span></p>
                   </td>
 
                     <td>
@@ -92,25 +93,14 @@
                         <%= link_to icon('edit'), edit_pick_path(pick), class: "btn btn-sm btn-primary" %>
                       </div>
 
-<!--                       <div class="btn-group btn-group-md">
-                        <%#= link_to icon('check-square-o'), pick, class: "btn btn-sm btn-success" %>
-                      </div> -->
-
                       <div class="btn-group btn-group-md">
                         <%= link_to icon('minus-circle'), pick_path(pick), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete this pick? All changes are permanent!" } %>
                       </div>
-
-<!--                       <div class="btn-group btn-group-md">
-                        <%#= link_to "Save This Pick", pick_path(pick), class: "btn btn-sm btn-warning", method: :patch, data: { confirm: "This pick will be added to your draft board!" } %>
-                      </div> -->
                     </td>
 
                   <% end %>
                   <td>
-<!--                     <div class="btn-group btn-group-md">
-                      <%#= link_to "Lock it In!", pick_path(pick), class: "btn btn-sm btn-success", method: :delete, data: { confirm: "Are you sure??" } %>
-                    </div>
-                  </td> -->
+
                 </tr>
                 <% end %>
             </tbody>

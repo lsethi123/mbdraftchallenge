@@ -6,8 +6,12 @@ class Pick < ActiveRecord::Base
   belongs_to :second
   has_one :mypick
 
-  def winner
-    # @w = Actual.find_by({ order: 'actual.number', team_id: 'actual.team_id', draftee_id: 'actual.draftee_id' })
-    @actual = Actual.find_by( :number => 'pick.order', :team_id => 'pick.team_id', :draftee_id => 'pick.draftee_id' )
-  end
+  # def winner
+  #   if pick.team.draftee.info == pick.draftee.info
+  #     pick.score = '5'.to_i
+  #     pick.save
+  #     redirect_to :picks, notice: 'Nice Pick!'
+  #   end
+  # end
+
 end
