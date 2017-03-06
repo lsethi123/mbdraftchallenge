@@ -73,17 +73,17 @@
 
 <!-- SCORE -->
                   <td>
-                      <% if pick.team.draftee.info == pick.draftee.info %>
+                      <%# if pick.team.draftee.info == pick.draftee.info %>
                         <p><span class="badge" style="color:white">5</span></p>
-                      <% else %>
+                      <%# else %>
                         <p><span class="badge" style="color:white">0</span></p>
-                      <% end %>
+                      <%# end %>
 
-                      <% if pick.team.second.info == pick.second.info  %>
+                      <%# if pick.team.second.info == pick.second.info  %>
                         <p><span class="badge" style="color:white">5</span></p>
-                      <% else %>
+                      <%# else %>
                         <p><span class="badge" style="color:white">0</span></p>
-                      <% end %>
+                      <%# end %>
                         <p><span class="badge" style="color:white"><%#= pick.winner %></span></p>
                   </td>
 
