@@ -1,4 +1,4 @@
-class PicksController < ApplicationController
+  class PicksController < ApplicationController
   before_action :find_pick, only: [:show, :edit, :update, :destroy]
 
   def index

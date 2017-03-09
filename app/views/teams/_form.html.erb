@@ -3,9 +3,10 @@
   <%= f.input :city, label: "Enter Team City", input_html: { class: "form-control"} %>
   <%= f.input :name, label: "Enter Team Name", input_html: { class: "form-control"} %>
   <%= f.input :notes, label: "Enter Team Notes", input_html: { class: "form-control"} %>
+  <br>
   <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "Select a College Prospect for this 1st round pick" }, input_html: { class: "dropdown-toggle" }   %>
   </br>
   <%= f.collection_select :second_id, Second.all, :id, :info, { prompt: "Select a College Prospect for this 2nd round pick" }, input_html: { class: "dropdown-toggle" }   %>
-  <br>
+  </br>
   <%= f.button :submit %>
 <% end %>
