@@ -60,10 +60,16 @@
           @pick.total = @pick.score1.to_i + @pick.score2.to_i + @pick.bonus.to_f
           @pick.save
         else
-          if @pick.score1 + @pick.score2 == '5'.to_i or '0'.to_i
+          if @pick.score1 + @pick.score2 == '5'.to_i
             @pick.bonus = '3.25'.to_f
             @pick.total = @pick.score1.to_i + @pick.score2.to_i + @pick.bonus.to_f
             @pick.save
+          else
+            if @pick.score1 + @pick.score2 == '0'.to_i
+              @pick.bonus = '0.0'.to_f
+              @pick.total = @pick.score1.to_i + @pick.score2.to_i + @pick.bonus.to_f
+              @pick.save
+            end
           end
         end
 
