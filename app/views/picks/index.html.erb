@@ -13,7 +13,8 @@
                   <th><h4>Team</h4></th>
                   <th><h4>Picks & Scores</h4></th>
                   <th><h4>Bonus</h4></th>
-                  <th><h4>Controls</h4></th>
+                  <th><h4>Total</h4></th>
+                  <th><h4>Reset</h4></th>
                 </tr>
             </head>
 
@@ -52,7 +53,7 @@
                                 <p class="todo_list_title"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> <%= link_to pick.second.info, pick.second %> to go in the 2nd<%#= pick.number.ordinalize %>.
 
                                   <% if pick.second.info == pick.team.second.info  %>
-                                    <span class="badge" style="color:white">+ 5</span></p>
+                                    <span class="badge" style="color:orange">+ <%= pick.score2.to_i %></span></p>
                                   <% else %>
                                     <span class="badge" style="color:white">0</span></p>
                                   <% end %>
@@ -69,7 +70,11 @@
                               </td>
 <!-- BONUS -->
                   <td>
-                      <p><span class="badge badge-success" style="color:yellow">+ 12</span></p>
+                      <p><span class="badge badge-success" style="color:yellow"><%= pick.bonus.to_f %></span></p>
+                  </td>
+<!-- TOTALS -->
+                  <td>
+                      <p><span class="badge badge-success style=color:white"><%= pick.total.to_f %></span></p>
                   </td>
 <!-- CONTROLS -->
                     <td>
@@ -101,6 +106,7 @@
 
   </div>
 </div>
-<!-- </div> -->
+
+
 
 

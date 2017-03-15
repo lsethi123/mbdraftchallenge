@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314201200) do
+ActiveRecord::Schema.define(version: 20170314215856) do
 
   create_table "actuals", force: :cascade do |t|
     t.string   "info"
@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 20170314201200) do
     t.integer  "num2"
     t.integer  "actual_id"
     t.integer  "score1"
+    t.float    "total"
+    t.integer  "score2"
+    t.float    "bonus"
   end
 
   add_index "picks", ["user_id"], name: "index_picks_on_user_id"
