@@ -7,7 +7,7 @@ class Pick < ActiveRecord::Base
   has_one :mypick
 
   # validates :number, :uniqueness => true
-  # validates :order, :uniqueness => true
+  validates :order, :uniqueness => true
   # validates :team_id, :uniqueness => true
   # validates :draftee_id, :uniqueness => true
   # validates :second_id, :uniqueness => true

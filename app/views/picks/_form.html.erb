@@ -1,62 +1,45 @@
 <%= simple_form_for(@pick) do |f| %>
   <%= f.error_notification %>
 
-      <div class="row isotope-container">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-0 col-md-10 col-md-offset-0 ">
+  <div class="row isotope-container">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-sm-offset-0 col-md-10 col-md-offset-0 ">
 <!-- TEAM INPUTS-->
-          <div class="row">
-            <div class="container">
-              <h3>TEAM</h3>
-              <h5>Draft Board Order #</h5>
+
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <h3>2017 Draft Order No.</h3>
+            <div class="form-inputs">
+              <%= f.input :order, collection: 1..32 %>
             </div>
-            <div class="col-xs-2 col-md-1 col-lg-1">
-              <div class="form-inputs">
-                <%= f.input :order, label: '1-32', collection: 0..64 %>
-              </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <h3>Teams</h3>
+            <div class="form-inputs">
+              <%= f.collection_select :team_id, Team.all, :id, :name, { prompt: "Select a Team for this pick" }, input_html: { class: "dropdown-toggle" }  %>
             </div>
-          </div>
-          <div class="form-inputs">
-            <%= f.collection_select :team_id, Team.all, :id, :name, { prompt: "Select a Team for this pick" }, input_html: { class: "dropdown-toggle" }  %>
-          </div>
-<!-- 1ST ROUND PICK'S INPUTS -->
-          <hr/>
-          <h3>FIRST ROUND DRAFT PICK</h3>
-          <div class="form-inputs">
-            <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "1st round pick's name" }, input_html: { class: "dropdown-toggle" }   %>
-          </div>
-          <br/>
-          <div class="row">
-            <div class="container">
-              <h5>Draft Position</h5>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <h3>DRAFTEE</h3>
+            <div class="form-inputs">
+              <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "1st round pick's name" }, input_html: { class: "dropdown-toggle" }   %>
             </div>
-            <div class="col-xs-2 col-md-1 col-lg-1">
-              <div class="form-inputs">
-                <%= f.input :number, label: '1-32', collection: 0..32 %>
-              </div>
-            </div>
-          </div>
-<!-- 2ND ROUND PICK'S INPUTS -->
-          <hr/>
-          <h3>SECOND ROUND DRAFT PICK</h3>
-          <div class="form-inputs">
-            <%= f.collection_select :second_id, Second.all, :id, :info, { prompt: "2nd round pick's name" }, input_html: { class: "dropdown-toggle" }   %>
-          </div>
-          <br/>
-          <div class="row">
-            <div class="container">
-              <h5>Draft Position</h5>
-            </div>
-              <div class="col-xs-2 col-md-1 col-lg-1">
-                <div class="form-inputs">
-                  <%= f.input :num2, label: '33-64', collection: 33..64 %>
-                </div>
-              </div>
-          </div>
-          <hr/>
+        </div>
+
+      </div>
+</br>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
           <div class="form-actions">
             <%= f.button :submit %>
           </div>
         </div>
       </div>
+
+    </div>
+  </div>
 
 <% end %>
