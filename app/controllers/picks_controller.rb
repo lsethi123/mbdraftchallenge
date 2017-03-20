@@ -4,7 +4,6 @@
   def index
     if current_user.present?
       @picks = current_user.picks.sort_by(&:order)
-      # how do I order_by pick.order?
     else
       @picks = Pick.all
     end
