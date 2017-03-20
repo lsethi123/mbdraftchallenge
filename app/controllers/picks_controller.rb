@@ -26,9 +26,9 @@
     #   redirect_to "/picks", notice: "Choose a new pick order. This one's taken."
     # else
         if @pick.save
-          redirect_to "/picks", notice: "This Picks just been created. Picks can be edited below, on this page."
+          redirect_to "/picks", notice: "This Pick's just been created. Picks can be edited below, on this page."
         else
-          redirect_to "/picks", notice: "Yo! You've only got 32 picks & can only use each number (1 - 32) once. Try the next in the sequence."
+          redirect_to "/picks", alert: "Yo! You've only got 32 picks & can only use each number once. Try the next in the sequence or edit an existing picks."
         end
     # end
   end
@@ -48,8 +48,8 @@
           @pick.score1 = '0'.to_i
           @pick.save
         end
-      # Add '5'.to_i points (integer) to pick.score2, if pick.second.info == pick.team.second.info
-        if @pick.second.info == @pick.team.second.info
+      # Add '5'.to_i points (integer) to pick.score2, if pick.order == pick.team.order. score2 corresponds to matching order.
+        if @pick.order.to_i == @pick.team.order.to_i
           @pick.score2 = '5'.to_i
           @pick.save
         else
@@ -85,7 +85,7 @@
 
   def destroy
     @pick.destroy
-    redirect_to "/picks"
+    redirect_to "/picks", notice: "This pick's been successfully deleted."
   end
 
 

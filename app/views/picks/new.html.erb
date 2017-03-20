@@ -1,6 +1,13 @@
 <h1>ADD A NEW DRAFT PICK</h1>
-<hr>
 
-<%= render 'form' %>
+<% if current_user.picks.count <= '32'.to_i %>
+
+  <%= render 'form' %>
+
+<% else %>
+
+  <p>You've got not picks left to make. Go back and edit your existing picks.</p>
+
+<% end %>
 
 <%= link_to "Back", picks_path %>

@@ -43,7 +43,7 @@ class TeamsController < ApplicationController
   private
 
   def teams_params
-    params.require(:team).permit( :name, :city, :notes, :helmet, :drafted, :draftee_id, :second_id )
+    params.require(:team).permit( :name, :city, :notes, :helmet, :drafted, :draftee_id, :second_id, :order )
   end
 
   def find_team

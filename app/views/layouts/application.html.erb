@@ -72,10 +72,20 @@
 
       <% if current_user.present? %>
 
+
+
         <div class="btn-group btn-group-md">
-          <%= link_to "Add New Pick", new_pick_path, class: "btn btn-sm btn-warning" %>
+          <%= link_to "Add New Pick", new_pick_path, class: "btn btn-sm btn-success" %>
         </div>
-        <br/>
+
+        <%# else %>
+
+        <div class="btn-group btn-group-md">
+          <%#= link_to "Add New Pick", '#', class: "btn btn-sm btn-danger" %>
+        </div>
+
+        <%# end %>
+      <br/>
 
       <% end %>
       <div class="btn-group btn-group-md">

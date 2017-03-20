@@ -2,6 +2,7 @@
 <p><%= image_tag @team.helmet.url, :height => '100px', :width => '100px' %></p>
 <h2><%= @team.city %><small><%= @team.name %></small></h2>
 <p><%= @team.notes %></p>
+<p class="todo_list_title">2017 Pick #: <%= @team.try(:order) %></p>
 <p><%= @team.draftee.info %></p>
 <p><%= @team.second.info %></p>
 <br/>

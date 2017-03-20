@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314215856) do
+ActiveRecord::Schema.define(version: 20170317141934) do
 
   create_table "actuals", force: :cascade do |t|
     t.string   "info"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20170314215856) do
     t.string   "drafted"
     t.integer  "draftee_id"
     t.integer  "second_id"
+    t.integer  "order"
   end
 
   create_table "users", force: :cascade do |t|

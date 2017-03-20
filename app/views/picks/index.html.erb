@@ -1,7 +1,7 @@
 <!-- DRAFT BOARD -->
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="panel panel-primary">
-    <div class="panel-heading">My Draft Board</div>
+    <div class="panel-heading">My Draft Board  <span class="badge" style="color:black"><%= '32'.to_i - @picks.count %> picks left to make</span></p></div>
       <div class="row isotope-container">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
@@ -34,6 +34,11 @@
                     <%= simple_form_for(pick) do |f| %>
                     <td>
                       <p class="todo_list_title"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> <%= link_to pick.team.city, pick.team %>
+                      <% if pick.order == pick.team.order  %>
+                        <span class="badge" style="color:orange">+ <%= pick.score2.to_i %></span></p>
+                      <% else %>
+                        <span class="badge" style="color:white">0</span></p>
+                      <% end %>
                       </p>
                     <div class="form-inputs">
                       <%= f.collection_select :team_id, Team.all, :id, :name, { prompt: "Select a Team for this pick" }, input_html: { class: "dropdown-toggle" }  %>
