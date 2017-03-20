@@ -3,12 +3,14 @@
 
   def index
     if current_user.present?
-      @picks = current_user.picks
+      @picks = current_user.picks.sort_by(&:order)
       # how do I order_by pick.order?
     else
       @picks = Pick.all
     end
   end
+
+  # @plans = Plan.order(params[:sort])
 
   def show
 
@@ -28,7 +30,7 @@
         if @pick.save
           redirect_to "/picks", notice: "This Pick's just been created. Picks can be edited below, on this page."
         else
-          redirect_to "/picks", alert: "Yo! You've only got 32 picks & can only use each number once. Try the next in the sequence or edit an existing picks."
+          redirect_to "/picks", alert: "Yo! You've only got 32 picks & can only use each number once. See which picks between 1 and 32 are missing, try the next in the sequence or edit an existing pick."
         end
     # end
   end
