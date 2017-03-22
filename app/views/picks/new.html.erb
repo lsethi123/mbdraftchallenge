@@ -1,13 +1,23 @@
-<h1>ADD A NEW DRAFT PICK <small><span class="badge" style="color:white"><%= current_user.picks.count %> total picks</span><span class="badge" style="color:yellow">Your last pick was #<%#= current_user.picks.try(:last).order %></span><span class="badge" style="color:black"><%= '32'.to_i - current_user.picks.count %> picks left</span></small></h1>
+<h1>ADD A NEW DRAFT PICK</h1>
+
+<% if current_user.picks.count >= '1'.to_i %>
+  <p>
+    <span class="badge" style="color:white"><%= current_user.picks.count %> total picks</span>
+  <p>
+    <span class="badge" style="color:yellow">Your last pick was draft position #<%= current_user.picks.try(:last).order %></span>
+  <p>
+    <span class="badge" style="color:white">You've got <%= '32'.to_i - current_user.picks.count %> picks left!</span>
+<% else %>
+<% end %>
+
+
 
 <% if current_user.picks.count < '32'.to_i %>
-
   <%= render 'form' %>
-
 <% else %>
-
   <p>You've reached the max number of picks, but you can go back and edit existing ones.</p>
-
 <% end %>
+
+
 
 <%= link_to "Back", picks_path %>
