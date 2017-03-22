@@ -5,9 +5,9 @@
         <div class="col-xs-12 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-0 ">
           <br/>
           <div class="form-inputs">
-            <%= f.input :number, hint: 'The Draft Picks Overall Pick Number', collection: 0..64 %>
+            <%= f.input :number, hint: 'The Draft Picks Overall Pick Number', collection: 1..32 %>
             <br/>
-            <%= f.collection_select :team_id, Team.all, :id, :name, { promt: "Use the dropdown access team."} %>
+            <%#= f.collection_select :team_id, Team.all, :id, :name, { promt: "Use the dropdown access team."} %>
             <br/>
             <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "Use the dropdown to access the draft pick." }, input_html: { class: "dropdown-toggle" }   %>
           </div>

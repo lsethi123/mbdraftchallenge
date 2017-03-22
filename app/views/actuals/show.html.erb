@@ -1,8 +1,8 @@
-<h1>1st Round Draft Pick Profile</h1>
-<h2><%= @actual.number %>. <%= @actual.team.name %> picks <%= @actual.draftee.info %></h2>
+<h1>2017 Draft Pick Profile</h1>
+<h2><%= @actual.number %>. <%#= @actual.team.name %> <%= @actual.draftee.info %></h2>
 
 
 <br/>
 <%= link_to "Back", '/actuals' %>
-<%= link_to "Add New Prospect", new_actual_path %>
-<%= link_to "Delete Prospect", actual_path(@actual), method: :delete, data: { confirm: "Are you sure??" } %>
+<%= link_to "Add New 2017 Draft Pick", new_actual_path %>
+<%= link_to "Delete 2017 Draft Pick", actual_path(@actual), method: :delete, data: { confirm: "Are you sure?" } %>

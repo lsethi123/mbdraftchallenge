@@ -9,7 +9,7 @@
             <head>
                 <tr>
                   <th><h4><%= link_to "Order", :sort => "order" %></h4></th>
-                  <th><h4>Team</h4></th>
+                  <!-- <th><h4>Team</h4></th> -->
                   <th><h4></h4></th>
                   <th><h4>Picks & Scores</h4></th>
                   <th><h4>Bonus</h4></th>
@@ -26,35 +26,35 @@
                   </td>
 <!-- HELMET - BLANK -->
                   <td>
-                    <%= link_to (image_tag pick.team.helmet.url, :height => '25px', :width => '25px' ) %>
+                    <%#= link_to (image_tag pick.team.helmet.url, :height => '25px', :width => '25px' ) %>
                   </td>
 <!-- (PICK) TEAM -->
 
                     <!-- <h4 class="todo_list_title"><%#= link_to pick.team.city, pick.team %> <%#= link_to pick.team.name, pick.team %></h4> -->
                     <%= simple_form_for(pick) do |f| %>
-                    <td>
-                      <p class="todo_list_title"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> <%= link_to pick.team.city, pick.team %>
-                      <% if pick.order == pick.team.order  %>
-                        <span class="badge" style="color:orange">+ <%= pick.score2.to_i %></span></p>
-                      <% else %>
-                        <span class="badge" style="color:white">0</span></p>
-                      <% end %>
+                    <!-- <td> -->
+                      <!-- <p class="todo_list_title"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> <%#= link_to pick.team.city, pick.team %> -->
+                      <%# if pick.order == pick.team.order  %>
+                        <!-- <span class="badge" style="color:orange">+ <%#= pick.score2.to_i %></span></p> -->
+                      <%# else %>
+                        <!-- <span class="badge" style="color:white">0</span></p> -->
+                      <%# end %>
                       </p>
-                    <div class="form-inputs">
-                      <%= f.collection_select :team_id, Team.all, :id, :name, { prompt: "Select a Team for this pick" }, input_html: { class: "dropdown-toggle" }  %>
-                    </div>
+                    <!-- <div class="form-inputs"> -->
+                      <%#= f.collection_select :team_id, Team.all, :id, :name, { prompt: "Select a Team for this pick" }, input_html: { class: "dropdown-toggle" }  %>
+                   <!--  </div> -->
                     <%# end %>
-                  </td>
+                  <!-- </td> -->
 <!-- PICKS & SCORES (PICK DRAFTEES)-->
-                              <%#= simple_form_for(pick) do |f| %>
+                              <%= simple_form_for(pick) do |f| %>
                               <td>
-                                <p class="todo_list_title"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> <%= link_to pick.draftee.info, pick.draftee %> to go in the 1st round<%#= pick.number.ordinalize %>.
+                                <p class="todo_list_title"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> <%= link_to pick.draftee.info, pick.draftee %> to go <%= pick.order.ordinalize %> overall.
 
-                                  <% if pick.draftee.info == pick.team.draftee.info %>
+                                  <%# if pick.order == actual.number %>
                                     <span class="badge" style="color:orange">+ <%= pick.score1.to_i %></span></p>
-                                  <% else %>
-                                    <span class="badge" style="color:white">0</span>
-                                  <% end %>
+                                  <%# else %>
+                                    <!-- <span class="badge" style="color:white">0</span> -->
+                                  <%# end %>
                                 </p>
                                 <div class="form-inputs"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                   <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "Select a Pick" }, input_html: { class: "dropdown-toggle" }   %>
@@ -94,7 +94,7 @@
                   </td>
 <!-- CONTROLS -->
                     <td>
-                  <% if current_user.present? %>
+                  <%# if current_user.present? %>
                       <!-- <div class="btn-group btn-group-md">
                         <%#= link_to icon('edit'), edit_pick_path(pick), class: "btn btn-sm btn-primary" %>
                       </div> -->
@@ -108,9 +108,9 @@
                       </div>
                     </td>
 
-                  <% end %>
+                  <%# end %>
                   <td>
-
+                    <% end %>
                 </tr>
                 <% end %>
             </tbody>

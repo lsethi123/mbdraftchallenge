@@ -29,6 +29,7 @@
 
         <ul class="nav navbar-nav navbar-right">
           <% if current_user.present? %>
+                <span class="glyphicon glyphicon-user" aria-hidden="true"><%= current_user.id %></span>
                 <li><%= link_to current_user.email, edit_user_registration_path %></li>
                 <li><%= link_to "Sign Out", destroy_user_session_path, :method => "delete" %></li>
               <% else  %>
@@ -72,8 +73,6 @@
 
       <% if current_user.present? %>
 
-
-
         <div class="btn-group btn-group-md">
           <%= link_to "Add New Pick", new_pick_path, class: "btn btn-sm btn-success" %>
         </div>
@@ -91,12 +90,14 @@
       <div class="btn-group btn-group-md">
         <% if current_user.present? && current_user.email == "admin@example.com" %>
           <div class="btn-group btn-group-md">
+          <p>Admin Controls:</p>
            <%= link_to "Add Teams", new_team_path, class: "navbar-brand"  %>
-           <%= link_to "Add 1st Rounders", new_draftee_path, class: "navbar-brand" %>
-           <%= link_to "Add 2nd Rounders", new_second_path, class: "navbar-brand" %>
-           <%= link_to "Add 2017 NFL Draft Picks", new_actual_path, class: "navbar-brand"  %>
-           <%= link_to "Edit 1st Rounders", draftees_path, class: "navbar-brand" %>
-           <%= link_to "Edit 2nd Rounders", seconds_path, class: "navbar-brand" %>
+           <%= link_to "Add Draftees", new_draftee_path, class: "navbar-brand" %>
+           <%= link_to "Edit Draftees", draftees_path, class: "navbar-brand" %>
+           <%= link_to "Add 2017 Picks", new_actual_path, class: "navbar-brand"  %>
+           <%= link_to "Edit 2017 Picks", actuals_path, class: "navbar-brand"  %>
+           <%#= link_to "Add 2nd Rounders", new_second_path, class: "navbar-brand" %>
+           <%#= link_to "Edit 2nd Rounders", seconds_path, class: "navbar-brand" %>
           </div>
             <%#= link_to "Make Picks", new_pick_path, class: "navbar-brand" %>
         <% end %>
