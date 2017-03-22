@@ -29,7 +29,6 @@
 
         <ul class="nav navbar-nav navbar-right">
           <% if current_user.present? %>
-                <span class="glyphicon glyphicon-user" aria-hidden="true"><%= current_user.id %></span>
                 <li><%= link_to current_user.email, edit_user_registration_path %></li>
                 <li><%= link_to "Sign Out", destroy_user_session_path, :method => "delete" %></li>
               <% else  %>
