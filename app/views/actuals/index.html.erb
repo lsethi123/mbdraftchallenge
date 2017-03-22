@@ -1,6 +1,6 @@
 <h1>The NFL 2017 Draft Class</h1>
 <% @actuals.each do |actual| %>
-  <h2 class="todo_list_title">#<%= actual.number %>. <%= link_to actual.team.name, actual.team %> picks <%= link_to actual.draftee.info, actual.draftee %></h2>
+  <h2 class="todo_list_title">#<%= actual.number %>. <%#= link_to actual.team.name, actual.team %> <%= link_to actual.draftee.info, actual.draftee %></h2>
   <%= link_to "Edit Pick", edit_actual_path(actual), class: "btn btn-sm btn-default" %>
   <br/>
 <% end %>
