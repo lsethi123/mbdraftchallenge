@@ -4,4 +4,6 @@ class Draftee < ActiveRecord::Base
   has_one :mypicks
   has_one :actual
   has_one :team
+
+  validates :info, :presence => true
 end

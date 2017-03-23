@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   before_action :find_team, only: [:show, :edit, :update, :destroy]
 
   def index
-    @teams = Team.all
+    @teams = Team.all.sort_by(&:city)
   end
 
   def show
