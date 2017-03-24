@@ -1,6 +1,15 @@
   class PicksController < ApplicationController
   before_action :find_pick, only: [:show, :edit, :update, :destroy]
 
+  # REMOVE COMMENTS WHEN SHUTTING DOWN EDITING FROM USERS!!!
+  # before_action :admin_only, only: [:edit, :update, :destroy]
+
+  # def admin_only
+  #   if current_user.email != 'admin@example.com'
+  #     redirect_to :back, alert: "Doh! No more editing picks."
+  #   end
+  # end
+
   def index
     if current_user.present?
       @picks = current_user.picks.sort_by(&:order)
