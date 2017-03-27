@@ -7,17 +7,13 @@
     <span class="badge" style="color:yellow">Your last pick was draft position #<%= current_user.picks.try(:last).order %></span>
   <p>
     <span class="badge" style="color:white">You've got <%= '32'.to_i - current_user.picks.count %> picks left!</span>
-<% else %>
+<%# else %>
 <% end %>
-
-
 
 <% if current_user.picks.count < '32'.to_i %>
   <%= render 'form' %>
 <% else %>
   <p>You've reached the max number of picks, but you can go back and edit existing ones.</p>
 <% end %>
-
-
 
 <%= link_to "Back", picks_path %>

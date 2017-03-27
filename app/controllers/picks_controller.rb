@@ -24,7 +24,11 @@
 
   def new
     #@pick = current_user.picks.build
-    @pick = Pick.new(draftee_id: params[:draftee_id])
+    if current_user.picks.count < '32'.to_i
+      @pick = Pick.new(draftee_id: params[:draftee_id])
+    else
+      redirect_to "/picks", alert: "You've maxed out on Picks! Check your board and edit picks to lock in any changes."
+    end
   end
 
   def create
@@ -32,9 +36,21 @@
       if @pick.save
         redirect_to "/picks", notice: "This Pick's just been created. Picks can be edited below, on this page."
       else
-        redirect_to "/picks", alert: "Yo! You've only got 32 picks & can only use each number once. See which picks between 1 and 32 are missing, try the next in the sequence or edit an existing pick."
+        redirect_to "/picks", alert: "Seems you've tried to use a number more than once. See which picks between 1 and 32 are missing. Try the next in the sequence or edit an existing pick."
       end
   end
+
+  # def create
+  #   @pick = current_user.picks.build(picks_params)
+  #     if current_user.picks.count < '32'.to_i
+  #       @pick.save
+  #       redirect_to "/picks", notice: "This Pick's just been created. Picks can be edited below, on this page."
+  #     else
+  #       redirect_to "/picks", notice: "You've maxed out on picks or tried to use the same pick twice!"
+  #     end
+  # end
+
+
 
   def edit
 

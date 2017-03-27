@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :actuals
   resources :seconds
 
+  # get 'landing', to: 'static#landing'
+  root 'static#landing'
+
+
+  get '/picks', :to => "picks#index"
   devise_for :users
-  root :to => "picks#index"
 end

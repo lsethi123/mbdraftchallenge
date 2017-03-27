@@ -1,4 +1,24 @@
-<!-- JAVASCRIPT COUNTDOWN TIMER -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>MB Draft Challenge</title>
+    <!-- For reCaptcha -->
+    <script type="text/javascript">
+      var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+          'sitekey' : 'your_site_key'
+        });
+      };
+    </script>
+  </head>
+
+  <body>
+
+<!-- JUMBOTRON -->
+<div class="jumbotron">
+  <div class="container">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+    <!-- JAVASCRIPT COUNTDOWN TIMER -->
       <h4>Time til' Draft:<font color="green"><em><p id="demo"></p></em></font></h4>
       <script>
       // Set the date we're counting down to
@@ -32,35 +52,29 @@
       </script>
 
       <h1>Build Your Draft Board</h1>
-      <h3 class="hidden-xs">Match NFL prospects with teams based on team need for a chance to win $10,000!</h3>
+      <h3 class="hidden-xs">Match the 1st round of the NFL's 2017 draft and win $1,000,000!</h3>
       <p class="hidden-xs">Sign up for free. Manage your draft board and earn points with each correct pick.  Pick the correct pick for any team in rounds 1 & 2 for bonus points! Compete against others...</p>
-
-      <% if current_user.present? %>
-        <div class="btn-group btn-group-md">
-          <%= link_to "Add New Pick", new_pick_path, class: "btn btn-sm btn-success" %>
-        </div>
-      <br/>
-      <% end %>
-
-      <div class="btn-group btn-group-md">
-        <% if current_user.present? && current_user.email == "admin@example.com" %>
-          <div class="btn-group btn-group-md">
-            <h3>Admin Controls:</h3>
-              <p>
-                 <%= link_to "Add Teams", new_team_path, class: "btn btn-sm btn-success"  %> |
-                 <%= link_to "Add Draftees", new_draftee_path, class: "btn btn-sm btn-success" %>
-                 <%= link_to "Edit Draftees", draftees_path, class: "btn btn-sm btn-info" %> |
-                 <%= link_to "Add 2017 Actuals", new_actual_path, class: "btn btn-sm btn-success"  %>
-                 <%= link_to "Edit 2017 Actuals", actuals_path, class: "btn btn-sm btn-info"  %>
-                 <%#= link_to "Add 2nd Rounders", new_second_path, class: "navbar-brand" %>
-                 <%#= link_to "Edit 2nd Rounders", seconds_path, class: "navbar-brand" %>
-              </p>
-          </div>
-            <%#= link_to "Make Picks", new_pick_path, class: "navbar-brand" %>
-        <% end %>
-      </div>
-      <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
+      <p>
+        <!-- reCaptcha -->
+        <form action="localhost:3000/users/sign_up" method="POST" align="right">
+          <div class="g-recaptcha" data-sitekey="6LcrgRoUAAAAAKyLUXE97T_TAGQ-H1qJ8yci0Fpy" align="right"></div>
+          <br/>
+          <input type="submit" value="Submit" >
+        </form>
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+                async defer>
+        </script>
+      </p>
     </div>
   </div>
 </div>
 <!-- JUMBOTRON END -->
+
+    <div class="row">
+      <div class="container">
+        <h1>MB Draft Challenge Landing Page</h1>
+      </div>
+    </div>
+
+  </body>
+</html>
