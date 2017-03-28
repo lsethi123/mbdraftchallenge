@@ -10,6 +10,18 @@
   #   end
   # end
 
+  # def match
+  #   @match = Actual.find_by({ :number => @pick.order, :draftee_id => @pick.draftee_id })
+  #   # Add '5'.to_i points (integer) to pick.score1, if pick.order == actual.number.
+  #   if @match.present?
+  #     @pick.score1 = '5'.to_i
+  #     @pick.save
+  #   else
+  #     @pick.score1 = '00'.to_i
+  #     @pick.save
+  #   end
+  # end
+
   def index
     if current_user.present?
       @picks = current_user.picks.sort_by(&:order)
@@ -40,26 +52,15 @@
       end
   end
 
-  # def create
-  #   @pick = current_user.picks.build(picks_params)
-  #     if current_user.picks.count < '32'.to_i
-  #       @pick.save
-  #       redirect_to "/picks", notice: "This Pick's just been created. Picks can be edited below, on this page."
-  #     else
-  #       redirect_to "/picks", notice: "You've maxed out on picks or tried to use the same pick twice!"
-  #     end
-  # end
-
-
-
   def edit
 
   end
 
   def update
+    @match = Actual.find_by({ :number => @pick.order, :draftee_id => @pick.draftee_id })
     if @pick.update(picks_params)
       # Add '5'.to_i points (integer) to pick.score1, if pick.draftee.info (User's Pick) == pick.team.draftee.info (Team's Actual Pick)
-        # if @pick.draftee.info == @pick.team.draftee.info
+        # if @pick.draftee.info == @pick.team.draftee_ide.info
         #   @pick.score1 = '5'.to_i
         #   @pick.save
         # else
@@ -67,13 +68,23 @@
         #   @pick.save
         # end
       # Add '5'.to_i points (integer) to pick.score1, if pick.order == actual.number.
-        # if @pick.order.to_i == @pick.actual.number.to_i
+        # if @pick.order.to_i == @actual.number.to_i
         #   @pick.score1 = '5'.to_i
         #   @pick.save
         # else
         #   @pick.score1 = '0'.to_i
         #   @pick.save
         # end
+
+      # Add '5'.to_i points (integer) to pick.score1, if pick.order == actual.number.
+        if @match.present?
+          @pick.score1 = '5'.to_i
+          @pick.save
+        else
+          @pick.score1 = '00'.to_i
+          @pick.save
+        end
+
       # Add '7.5'.to_i points (float) to pick.bonus, if 'pick.score1'.to_i + 'pick.score2.to_i' == '10'.to_i
         # if @pick.score1 + @pick.score2 == '10'.to_i
         #   @pick.bonus = '7.5'.to_f

@@ -1,7 +1,7 @@
 <!-- DRAFT BOARD -->
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="panel panel-primary">
-    <div class="panel-heading">My Draft Board  <span class="badge" style="color:black"><%= '32'.to_i - @picks.count %> picks left to make</span></p></div>
+    <div class="panel-heading">Million Dollar Draft Board  <span class="badge" style="color:black"><%= '32'.to_i - @picks.count %> picks left to make</span></p></div>
       <div class="row isotope-container">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
@@ -10,7 +10,7 @@
                 <tr>
                   <th><h4><%#= link_to "Order", :sort => "order" %>Order</h4></th>
                   <!-- <th><h4>Team</h4></th> -->
-                  <th><h4>2017 Draft Picks<% if current_user.present? && current_user.picks.count < '32'.to_i %>
+                  <th><h4>Your 2017 Draft Picks<% if current_user.present? && current_user.picks.count < '32'.to_i %>
                     <div class="btn-group btn-group-md">
                       <%= link_to "Add New Pick", new_pick_path, class: "btn btn-sm btn-success" %>
                     </div>
@@ -21,6 +21,7 @@
                     </div>
                     <br/>
                   <% end %></h4></th>
+                  <th class='hidden-xs'><h4>2017 Draft</h4></th>
                   <th class='hidden-xs'><h4>Bonus</h4></th>
                   <th><h4>Total</h4></th>
                 </tr>
@@ -33,28 +34,39 @@
                   <td>
                     <h4 class="todo_list_title"><%= pick.order %></h4>
                   </td>
-<!-- HELMET - BLANK -->
 <!-- (PICK) TEAM -->
                     <%= simple_form_for(pick) do |f| %>
 <!-- PICKS & SCORES (PICK DRAFTEES)-->
                               <%= simple_form_for(pick) do |f| %>
                               <td>
                                 <p class="todo_list_title"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> <%= link_to pick.draftee.info, pick.draftee %> to go <%= pick.order.ordinalize %> overall.
-
-                                  <%# if pick.order == actual.number %>
-                                    <!-- <span class="badge" style="color:orange">+ <%#= pick.score1.to_i %></span></p> -->
-                                  <%# else %>
-                                    <!-- <span class="badge" style="color:white">0</span> -->
-                                  <%# end %>
+                                    <span class="badge" style="color:orange">+ <%= pick.score1.to_i %></span>
                                 </p>
                                 <div class="form-inputs"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                   <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "Select a Pick" }, input_html: { class: "dropdown-toggle" }   %>
+                                  <!-- Comment out before the draft, when editing is closed -->
                                   <%= f.button :submit, "Lock in Pick", class: "btn btn-xs btn-primary" %>
+
+                                  <!-- Comment out until after the 1st pick of the 2017 draft -->
+                                  <%= f.button :submit, "Check Pick!", class: "btn btn-xs btn-success" %>
+
                                   <%#= link_to icon('refresh'), '#', class: "btn btn-xs btn-success" %>
                                   <%= link_to icon('minus-circle'), pick_path(pick), class: "btn btn-xs btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete this pick? All changes are permanent!" } %>
                                 </div>
                               <% end %>
                               </td>
+<!-- ACTUAL 2017 DRAFT PICKS -->
+                  <% @matched = Actual.find_by({ :number => pick.order, :draftee_id => pick.draftee_id }) %>
+                  <% @nonmatch = Actual.find_by({ :number => pick.order }) %>
+                    <td class='hidden-xs'>
+                    <% if @matched.present? %>
+                        <p><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> <%= @matched.number %>. <%= @matched.draftee.info.truncate(20, omission: '...') %></p>
+                    <% else %>
+                      <% if @nonmatch.present? %>
+                          <p style="color:red"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> <%= @nonmatch.number %>. <%= @nonmatch.draftee.info.truncate(20, omission: '...') %></p>
+                      <% end %>
+                    <% end %>
+                    </td>
 <!-- BONUS -->
                   <td class='hidden-xs'>
                       <p><span class="badge badge-success" style="color:yellow"><%= pick.bonus.to_f %></span></p>
