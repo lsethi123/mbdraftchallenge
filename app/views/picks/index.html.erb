@@ -1,15 +1,15 @@
 <!-- DRAFT BOARD -->
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="panel panel-primary">
-    <div class="panel-heading">Million Dollar Draft Board  <span class="badge" style="color:black"><%= '32'.to_i - @picks.count %> picks left to make</span></p></div>
+    <div class="panel-heading"><i class="fa fa-usd" aria-hidden="true"></i> Million Dollar Draft Board  <span class="badge" style="color:black"><%= '32'.to_i - @picks.count %> picks left to make</span></p></div>
       <div class="row isotope-container">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
           <table class="table" align="left">
             <head>
                 <tr>
-                  <th><h4><%#= link_to "Order", :sort => "order" %>Order</h4></th>
-                  <!-- <th><h4>Team</h4></th> -->
+                  <th><h4>Order</h4></th>
+                  <th><h4>Team</h4></th>
                   <th><h4>Your 2017 Draft Picks<% if current_user.present? && current_user.picks.count < '32'.to_i %>
                     <div class="btn-group btn-group-md">
                       <%= link_to "Add New Pick", new_pick_path, class: "btn btn-sm btn-success" %>
@@ -35,6 +35,14 @@
                     <h4 class="todo_list_title"><%= pick.order %></h4>
                   </td>
 <!-- (PICK) TEAM -->
+                  <% @teamed = Team.find_by({ :order => pick.order }) %>
+                     <td>
+                   <% if @teamed.present? %>
+                    <p><%= @teamed.city %></p>
+                   <% end %>
+                    </td>
+
+
                     <%= simple_form_for(pick) do |f| %>
 <!-- PICKS & SCORES (PICK DRAFTEES)-->
                               <%= simple_form_for(pick) do |f| %>
