@@ -2,7 +2,7 @@ class ActualsController < ApplicationController
   before_action :find_actual, only: [:show, :edit, :update, :destroy]
 
   def index
-    @actuals = Actual.all
+    @actuals = Actual.all.sort_by(&:number)
   end
 
   def show

@@ -1,27 +1,6 @@
   class PicksController < ApplicationController
   before_action :find_pick, only: [:show, :edit, :update, :destroy]
 
-  # REMOVE COMMENTS WHEN SHUTTING DOWN EDITING FROM USERS!!!
-  # before_action :admin_only, only: [:edit, :update, :destroy]
-
-  # def admin_only
-  #   if current_user.email != 'admin@example.com'
-  #     redirect_to :back, alert: "Doh! No more editing picks."
-  #   end
-  # end
-
-  # def match
-  #   @match = Actual.find_by({ :number => @pick.order, :draftee_id => @pick.draftee_id })
-  #   # Add '5'.to_i points (integer) to pick.score1, if pick.order == actual.number.
-  #   if @match.present?
-  #     @pick.score1 = '5'.to_i
-  #     @pick.save
-  #   else
-  #     @pick.score1 = '00'.to_i
-  #     @pick.save
-  #   end
-  # end
-
   def index
     if current_user.present?
       @picks = current_user.picks.sort_by(&:order)
