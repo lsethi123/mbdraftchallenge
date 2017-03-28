@@ -28,6 +28,25 @@
         <%= link_to "Rules", root_path, class: "navbar-brand" %>
         <%= link_to "Terms", root_path, class: "navbar-brand" %>
         <%= link_to "Privacy", root_path, class: "navbar-brand" %>
+
+        <% if current_user.present? && current_user.email == "admin@example.com" %>
+           <%= link_to "+ Teams", new_team_path, class: "navbar-brand"  %>
+           <%= link_to "+ Draftees", new_draftee_path, class: "navbar-brand" %>
+           <%= link_to "+/- Draftees", draftees_path, class: "navbar-brand" %>
+           <%= link_to "+ Actuals", new_actual_path, class: "navbar-brand"  %>
+           <%= link_to "+/- Actuals", actuals_path, class: "navbar-brand"  %>
+        <% end %>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user.present? %>
+                <li><%= link_to current_user.email, edit_user_registration_path %></li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, :method => "delete" %></li>
+                <li><%= link_to "Help", "#" %></li>
+              <% else  %>
+                <li><%= link_to "Sign In", new_user_session_path %></li>
+                <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %>
+        </ul>
       </div>
     </nav>
 <% else %>

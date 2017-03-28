@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.2'
 # Use sqlite3 as the database for Active Record
@@ -28,6 +29,7 @@ gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'devise', '~> 3.4.1'
 gem 'paperclip', '~> 4.2.0'
 gem 'font-awesome-sass'
+gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
