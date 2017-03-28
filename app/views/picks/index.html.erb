@@ -10,20 +10,20 @@
                 <tr>
                   <th><h4>Order</h4></th>
                   <th><h4>Team</h4></th>
-                  <th><h4>Your 2017 Draft Picks<% if current_user.present? && current_user.picks.count < '32'.to_i %>
-                    <div class="btn-group btn-group-md">
-                      <%= link_to "Add New Pick", new_pick_path, class: "btn btn-sm btn-success" %>
-                    </div>
-                    <br/>
-                    <% else %>
-                    <div class="btn-group btn-group-md">
-                      <%= link_to "Maxed Out!", "#", class: "btn btn-sm btn-danger" %>
-                    </div>
-                    <br/>
-                  <% end %></h4></th>
-                  <th class='hidden-xs'><h4>2017 Draft</h4></th>
-                  <th class='hidden-xs'><h4>Bonus</h4></th>
-                  <th><h4>Total</h4></th>
+                  <th><h4>Your Picks
+                      <% if current_user.present? && current_user.picks.count < '32'.to_i %>
+                        <div class="btn-group btn-group-md">
+                          <%= link_to "Add New Pick", new_pick_path, class: "btn btn-sm btn-success" %>
+                        </div>
+                        <% else %>
+                        <div class="btn-group btn-group-md">
+                          <%= link_to "Maxed Out!", "#", class: "btn btn-sm btn-danger" %>
+                        </div>
+                        <br/>
+                      <% end %></h4></th>
+                  <th><h4><i class="fa fa-microphone" aria-hidden="true"></i> Confirmed 2017 Pick</h4></th>
+                  <!-- <th class='hidden-xs'><h4>Bonus</h4></th> -->
+                  <th><h4>Score</h4></th>
                 </tr>
             </head>
 
@@ -34,12 +34,12 @@
                   <td>
                     <h4 class="todo_list_title"><%= pick.order %></h4>
                   </td>
-<!-- (PICK) TEAM -->
+<!-- TEAM -->
                   <% @teamed = Team.find_by({ :order => pick.order }) %>
                      <td>
-                   <% if @teamed.present? %>
-                    <p><%= @teamed.city %></p>
-                   <% end %>
+                     <% if @teamed.present? %>
+                      <h4 class="todo_list_title"><%= @teamed.city %></h4>
+                     <% end %>
                     </td>
 
 
@@ -52,7 +52,7 @@
                                 </p>
                                 <div class="form-inputs"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                   <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "Select a Pick" }, input_html: { class: "dropdown-toggle" }   %>
-                                  <!-- Comment out before the draft, when editing is closed -->
+                                  <!-- Comment out before the draft, when editing is closed. Midnight 4/27/17 -->
                                   <%= f.button :submit, "Lock in Pick", class: "btn btn-xs btn-primary" %>
 
                                   <!-- Comment out until after the 1st pick of the 2017 draft -->
@@ -76,9 +76,9 @@
                     <% end %>
                     </td>
 <!-- BONUS -->
-                  <td class='hidden-xs'>
-                      <p><span class="badge badge-success" style="color:yellow"><%= pick.bonus.to_f %></span></p>
-                  </td>
+<!--                   <td class='hidden-xs'>
+                      <p><span class="badge badge-success" style="color:yellow"><%#= pick.bonus.to_f %></span></p>
+                  </td> -->
 <!-- TOTALS -->
                   <td>
                       <p><span class="badge badge-success style=color:white"><%= pick.total.to_f %></span></p>
