@@ -60,7 +60,7 @@
           @pick.score1 = '5'.to_i
           @pick.save
         else
-          @pick.score1 = '00'.to_i
+          @pick.score1 = '0'.to_i
           @pick.save
         end
 

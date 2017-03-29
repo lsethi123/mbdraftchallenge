@@ -21,7 +21,7 @@
                         </div>
                         <br/>
                       <% end %></h4></th>
-                  <th><h4><i class="fa fa-microphone" aria-hidden="true"></i> Confirmed Picks</h4></th>
+                  <th><h4><i class="fa fa-microphone" aria-hidden="true"></i> 2017 Draft Class </h4></th>
                   <!-- <th class='hidden-xs'><h4>Bonus</h4></th> -->
                   <th><h4>Score</h4></th>
                 </tr>
@@ -67,7 +67,7 @@
                   <% @nonmatch = Actual.find_by({ :number => pick.order }) %>
                     <td class='hidden-xs'>
                     <% if @matched.present? %>
-                        <p><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> <%= @matched.number %>. <%= @matched.draftee.info.truncate(20, omission: '...') %></p>
+                        <p style="color:green"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> <%= @matched.number %>. <%= @matched.draftee.info.truncate(20, omission: '...') %></p>
                     <% else %>
                       <% if @nonmatch.present? %>
                           <p style="color:red"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> <%= @nonmatch.number %>. <%= @nonmatch.draftee.info.truncate(20, omission: '...') %></p>
