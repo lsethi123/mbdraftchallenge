@@ -35,6 +35,10 @@
 
   end
 
+  # def Score
+  #   @score = @pick.score1.inject(:+)
+  # end
+
   def update
     @match = Actual.find_by({ :number => @pick.order, :draftee_id => @pick.draftee_id })
     if @pick.update(picks_params)

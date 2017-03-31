@@ -14,61 +14,7 @@
 
   <body>
 
-    <!-- JUMBOTRON -->
-    <div class="jumbotron">
-      <div class="container">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-        <!-- JAVASCRIPT COUNTDOWN TIMER -->
-          <h4>Time til' Draft:<font color="green"><em><p id="demo"></p></em></font></h4>
-          <script>
-          // Set the date we're counting down to
-          var countDownDate = new Date("Apr 27, 2017 00:00:00").getTime();
-
-          // Update the count down every 1 second
-          var x = setInterval(function() {
-
-              // Get todays date and time
-              var now = new Date().getTime();
-
-              // Find the distance between now an the count down date
-              var distance = countDownDate - now;
-
-              // Time calculations for days, hours, minutes and seconds
-              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-              var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-              // Output the result in an element with id="demo"
-              document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-              + minutes + "m " + seconds + "s ";
-
-              // If the count down is over, write some text
-              if (distance < 0) {
-                  clearInterval(x);
-                  document.getElementById("demo").innerHTML = "EXPIRED";
-              }
-          }, 1000);
-          </script>
-
-          <h1>Build Your Draft Board</h1>
-          <h3 class="hidden-xs">Match the 1st round of the NFL's 2017 draft and win $1,000,000!</h3>
-          <p class="hidden-xs">Sign up for free. Manage your draft board and earn points with each correct pick.  Pick the correct pick for any team in rounds 1 & 2 for bonus points! Compete against others...</p>
-          <p>
-            <!-- reCaptcha -->
-            <form action="localhost:3000/users/sign_up" method="POST" align="right">
-              <div class="g-recaptcha" data-sitekey="6LcrgRoUAAAAAKyLUXE97T_TAGQ-H1qJ8yci0Fpy" align="right"></div>
-              <br/>
-              <input type="submit" value="Submit" >
-            </form>
-            <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-                    async defer>
-            </script>
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- JUMBOTRON END -->
+    <%= render 'layouts/jumbotron' %>
 
     <div class="row">
       <div class="container">
