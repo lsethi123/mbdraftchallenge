@@ -42,10 +42,10 @@
 <!-- YOUR PICKS -->           <td>
                               <%= simple_form_for(pick) do |f| %>
 
-                                <p class="todo_list_title"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> <%= link_to pick.draftee.info, pick.draftee %> to go <%= pick.order.ordinalize %> overall.
+                                <p class="todo_list_title"><span class="fa fa-lock" aria-hidden="true"></span> <%= link_to pick.draftee.info, pick.draftee %> to go <%= pick.order.ordinalize %> overall.
                                     <span class="badge" style="color:orange">+ <%= pick.score1.to_i %></span>
                                 </p>
-                                <div class="form-inputs"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                <div class="form-inputs"><span class="fa fa-edit" aria-hidden="true"></span>
                                   <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "Select a Pick" }, input_html: { class: "dropdown-toggle" }   %>
 
                                   <!-- Comment out before the draft, when editing is closed. Midnight 4/27/17 -->
@@ -63,10 +63,10 @@
                   <% @nonmatch = Actual.find_by({ :number => pick.order }) %>
                               <td class="hidden-xs">
                                 <% if @matched.present? %>
-                                    <p style="color:green"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> <%= @matched.number %>. <%= @matched.draftee.info.truncate(20, omission: '...') %></p>
+                                    <p style="color:green"><span class="fa fa-check-circle-o" aria-hidden="true"></span> <%= @matched.number %>. <%= @matched.draftee.info.truncate(20, omission: '...') %></p>
                                 <% else %>
                                   <% if @nonmatch.present? %>
-                                      <p style="color:red"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> <%= @nonmatch.number %>. <%= @nonmatch.draftee.info.truncate(20, omission: '...') %></p>
+                                      <p style="color:red"><span class="fa fa-ban" aria-hidden="true"></span> <%= @nonmatch.number %>. <%= @nonmatch.draftee.info.truncate(20, omission: '...') %></p>
                                   <% end %>
                                 <% end %>
                               </td>

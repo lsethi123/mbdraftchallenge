@@ -14,14 +14,12 @@
  *= require_self
  */
 
-/* @import "_variables.scss";*/
+ @import "_variables.scss";
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-/* @import "picks.scss";*/
-
-/*@import "_bootswatch.scss";*/
+ @import "_bootswatch.scss";
 
  @import "font-awesome-sprockets";
  @import "font-awesome";
