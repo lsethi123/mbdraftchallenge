@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   root 'static#landing'
 
   get '/picks', :to => "picks#index"
+
   devise_for :users
+
 end

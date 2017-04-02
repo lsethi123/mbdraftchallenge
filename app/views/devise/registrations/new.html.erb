@@ -1,16 +1,5 @@
+<hr><hr>
 <h2>Sign up</h2>
-
-<p>
-  <!-- reCaptcha -->
-  <form action="localhost:3000/users/sign_up" method="POST" align="right">
-    <div class="g-recaptcha" data-sitekey="6LcrgRoUAAAAAKyLUXE97T_TAGQ-H1qJ8yci0Fpy" align="right"></div>
-    <br/>
-    <input type="submit" value="Submit" >
-  </form>
-  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-          async defer>
-  </script>
-</p>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -20,6 +9,18 @@
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
     <%= f.input :password_confirmation, required: true %>
   </div>
+
+  <p>
+  <!-- reCaptcha -->
+  <form action="localhost:3000/users/sign_up" method="POST" align="right">
+    <div class="g-recaptcha" data-sitekey="6LcrgRoUAAAAAKyLUXE97T_TAGQ-H1qJ8yci0Fpy" align="left"></div>
+    <br/>
+    <!-- <input type="submit" value="Submit" > -->
+  </form>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+          async defer>
+  </script>
+  </p>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>

@@ -41,7 +41,12 @@
           <p class="hidden-xs">Pick the correct draftee, in the correct order for the 1st round of the 2017 draft.</p>
           <p class="hidden-xs">Match all 32 first round picks for a chance to win!</p>
           <p>
-          <a class="btn btn-primary btn-lg" href="/users/sign_up" role="button">Let's Go!</a>
+          <% if current_user.present? %>
+            <!-- <a class="btn btn-primary btn-lg" href="/picks" role="button">Make Your Picks!</a> -->
+            <%= link_to "Make Your Picks!", new_pick_path, class: "btn btn-lg btn-info" %>
+          <% else %>
+            <a class="btn btn-primary btn-lg" href="/users/sign_up" role="button">Let's Go!</a>
+          <% end %>
           </p>
         </div>
       </div>
