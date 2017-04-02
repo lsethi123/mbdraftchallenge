@@ -12,19 +12,20 @@
 
   <p>
   <!-- reCaptcha -->
-  <form action="localhost:3000/users/sign_up" method="POST" align="right">
+  <form action="?" method="POST" align="right">
     <div class="g-recaptcha" data-sitekey="6LcrgRoUAAAAAKyLUXE97T_TAGQ-H1qJ8yci0Fpy" align="left"></div>
     <br/>
     <!-- <input type="submit" value="Submit" > -->
+    <%= f.button :submit, "Sign Up" %>
   </form>
   <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
           async defer>
   </script>
   </p>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
+  <!-- <div class="form-actions">
+    <%#= f.button :submit, "Sign up" %>
+  </div> -->
 <% end %>
 
 <%= render "devise/shared/links" %>
