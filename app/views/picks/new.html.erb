@@ -1,3 +1,4 @@
+<br>
 <h1>ADD A NEW DRAFT PICK</h1>
 
 <% if current_user.picks.count >= '1'.to_i %>
@@ -16,4 +17,59 @@
   <p>You've reached the max number of picks, but you can go back and edit existing ones.</p>
 <% end %>
 
+<br>
 <%= link_to "Back", picks_path %>
+
+<hr>
+<div class="row">
+  <div class="container">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <h3>Your Picks</h3>
+        <% @current_user.picks.sort_by(&:order).each do |pick| %>
+          <p>
+            <%= pick.order %>. <%= pick.draftee.info %>
+          </p>
+        <% end %>
+    </div>
+<!-- Team Need -->
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <h3>2017 Round 1 Draft Order</h3>
+          <p>1. Cleveland Browns</p>
+          <p>2. San Francisco 49ers</p>
+          <p>3. Chicago Bears</p>
+          <p>4. Jacksonville Jaguars</p>
+          <p>5. Tennessee Titans (from L.A. Rams)</p>
+          <p>6. N.Y. Jets</p>
+          <p>7. L.A. Chargers</p>
+          <p>8. Carolina Panthers</p>
+          <p>9. Cincinnati Bengals</p>
+          <p>10. Buffalo Bills</p>
+          <p>11. New Orleans Saints</p>
+          <p>12. Cleveland Browns (from Philadelphia Eagles)</p>
+          <p>13. Arizona Cardinals</p>
+          <p>14. Philadelphia Eagles (from Minnesota Vikings)</p>
+          <p>15. Indianapolis Colts</p>
+          <p>16. Baltimore Ravens</p>
+          <p>17. Washington Redskins</p>
+          <p>18. Tennessee Titans</p>
+          <p>19. Tampa Bay Buccaneers</p>
+          <p>20. Denver Broncos</p>
+          <p>21. Detroit Lions</p>
+          <p>22. Miami Dolphins</p>
+          <p>23. N.Y. Giants</p>
+          <p>24. Oakland Raiders</p>
+          <p>25. Houston Texans</p>
+          <p>26. Seattle Seahawks</p>
+          <p>27. Kansas City Chiefs</p>
+          <p>28. Dallas Cowboys</p>
+          <p>29. Green Bay Packers</p>
+          <p>30. Pittsburgh Steelers</p>
+          <p>31. Atlanta Falcons</p>
+          <p>32. New Orleans Saints (From N.E. Patriots)</p>
+    </div>
+  </div>
+</div>
+<!-- List of prospects you've drafted -->
+
+
+

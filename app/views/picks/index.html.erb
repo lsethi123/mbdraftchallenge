@@ -1,6 +1,5 @@
 <!-- DRAFT BOARD -->
-<hr>
-<hr>
+</br>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="panel panel-primary">
     <div class="panel-heading"><i class="fa fa-usd" aria-hidden="true"></i> Million Dollar Draft Board  <span class="badge" style="color:black"><%= '32'.to_i - @picks.count %> picks left to make</span></p></div>
@@ -12,7 +11,7 @@
           <table class="table table-striped table-bordered table-hover table-condensed table-responsive" align="left" >
             <head>
                 <tr class="info">
-                  <th class="hidden-xs"><h4>Order</h4></th>
+                  <th><h4>Order</h4></th>
                   <th class="hidden-xs"><h4>Team</h4></th>
                   <th><h4>Your Picks
                       <% if current_user.present? && current_user.picks.count < '32'.to_i %>
@@ -31,7 +30,7 @@
             <tbody>
               <% @picks.each do |pick| %>
                  <tr>
-  <!-- ORDER -->  <td class="hidden-xs">
+  <!-- ORDER -->  <td>
                     <h4 class="todo_list_title"><%= pick.order %></h4>
                   </td>
 <!-- TEAM -->        <% @teamed = Team.find_by({ :order => pick.order }) %>
