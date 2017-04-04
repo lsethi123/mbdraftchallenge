@@ -6,13 +6,12 @@
 <!-- TEAM INPUTS-->
 
       <div class="row">
-
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-          <h3>2017 Draft Order No.</h3>
-            <div class="form-inputs">
-              <%= f.input :order, label: false, collection: 1..32 %>
-            </div>
-        </div>
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <h3>2017 Draft Order No.</h3>
+              <div class="form-inputs">
+                <%= f.input :order, label: false, collection: 1..32 %>
+              </div>
+          </div>
 <!--
          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
           <h3>Teams</h3>
@@ -22,7 +21,7 @@
         </div> -->
 
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-          <h3>DRAFTEE</h3>
+          <h3>Draftee</h3>
             <div class="form-inputs">
               <%= f.collection_select :draftee_id, Draftee.all, :id, :info, { prompt: "Prospect's name, position, school" }, input_html: { class: "dropdown-toggle" }   %>
             </div>

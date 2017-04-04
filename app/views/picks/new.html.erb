@@ -23,15 +23,7 @@
 <hr>
 <div class="row">
   <div class="container">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <h3>Your Picks</h3>
-        <% @current_user.picks.sort_by(&:order).each do |pick| %>
-          <p>
-            <%= pick.order %>. <%= pick.draftee.info %>
-          </p>
-        <% end %>
-    </div>
-<!-- Team Need -->
+    <!-- Team Need -->
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
       <h3>2017 Round 1 Draft Order</h3>
           <p>1. Cleveland Browns</p>
@@ -66,6 +58,14 @@
           <p>30. Pittsburgh Steelers</p>
           <p>31. Atlanta Falcons</p>
           <p>32. New Orleans Saints (From N.E. Patriots)</p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <h3>Your Picks</h3>
+        <% @current_user.picks.sort_by(&:order).each do |pick| %>
+          <p>
+            <%= pick.order %>. <%= pick.draftee.info %>
+          </p>
+        <% end %>
     </div>
   </div>
 </div>

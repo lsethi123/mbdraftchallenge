@@ -62,7 +62,9 @@
       # Add '5'.to_i points (integer) to pick.score1, if pick.order == actual.number.
         if @match.present?
           @pick.score1 = '5'.to_i
+          # picks.total = @total + '5'.to_i
           @pick.save
+          # @total.save
         else
           @pick.score1 = '0'.to_i
           @pick.save

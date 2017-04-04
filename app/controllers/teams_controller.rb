@@ -1,5 +1,13 @@
 class TeamsController < ApplicationController
   before_action :find_team, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only, only: [:edit, :update, :destroy]
+
+  def admin_only
+    if current_user.email != 'admin@example.com'
+      redirect_to :back, notice: "Step off. You are not authorized to do that."
+    end
+  end
+
 
   def index
     @teams = Team.all.sort_by(&:city)
