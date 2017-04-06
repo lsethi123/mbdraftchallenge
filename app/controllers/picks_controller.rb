@@ -35,9 +35,11 @@
 
   end
 
-  # def Score
-  #   @score = @pick.score1.inject(:+)
-  # end
+  def number_of_matches arr
+    arr.count do |e|
+      e == 'true'
+    end
+  end
 
   def update
     @match = Actual.find_by({ :number => @pick.order, :draftee_id => @pick.draftee_id })

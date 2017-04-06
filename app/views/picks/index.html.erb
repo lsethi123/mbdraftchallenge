@@ -65,6 +65,7 @@
                               <td class="hidden-xs">
                                 <% if @matched.present? %>
                                     <p style="color:green"><span class="fa fa-check-circle-o" aria-hidden="true"></span> <%= @matched.number %>. <%= @matched.draftee.info.truncate(20, omission: '...') %></p>
+
                                 <% else %>
                                   <% if @nonmatch.present? %>
                                       <p style="color:red"><span class="fa fa-ban" aria-hidden="true"></span> <%= @nonmatch.number %>. <%= @nonmatch.draftee.info.truncate(20, omission: '...') %></p>
@@ -75,12 +76,13 @@
                               <td class="hidden-xs">
                                   <p><span class="badge badge-success style=color:white"><%= pick.total.to_f %></span></p>
                               </td>
+                              <% @total_matched = Actual.where({ :number => pick.order, :draftee_id => pick.draftee_id }) %>
                     <% end %>
                 </tr>
               <% end %>
             </tbody>
-
           </table>
+
         </div>
 
           </div>
