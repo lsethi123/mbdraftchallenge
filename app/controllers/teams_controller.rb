@@ -1,10 +1,10 @@
 class TeamsController < ApplicationController
   before_action :find_team, only: [:show, :edit, :update, :destroy]
-  before_action :admin_only, only: [:edit, :update, :destroy]
+  before_action :admin_only, only: [:edit, :update, :destroy, :index]
 
   def admin_only
     if current_user.email != 'admin@example.com'
-      redirect_to :back, notice: "Step off. You are not authorized to do that."
+      redirect_to :back, notice: "Sorry. You are not authorized to do that."
     end
   end
 

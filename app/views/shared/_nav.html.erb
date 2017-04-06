@@ -24,8 +24,8 @@
             <% if current_user.present? %>
               <ul class="nav navbar-nav navbar-right">
                   <li><%= link_to "Picks", picks_path %></li>
-                  <li><%= link_to "Teams", teams_path %></li>
-                  <li><%= link_to "Prospects", draftees_path %></li>
+                  <li><%#= link_to "Teams", teams_path %></li>
+                  <li><%#= link_to "Prospects", draftees_path %></li>
                   <li><%= link_to current_user.email, edit_user_registration_path %></li>
                   <li><%= link_to "Sign Out", destroy_user_session_path, :method => "delete" %></li>
                   <li><%= link_to "Help", "#" %></li>
@@ -64,15 +64,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to "MB Draft Challenge", picks_path, class: "navbar-brand" %>
+          <%= link_to "MB Draft Challenge", root_path, class: "navbar-brand" %>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Picks", picks_path %></li>
+            <li><%#= link_to "Picks", picks_path %></li>
             <li><%#= link_to "Rules", picks_path %></li>
-            <li><%= link_to "Teams", teams_path %></li>
-            <li><%= link_to "Prospects", draftees_path %></li>
+            <li><%#= link_to "Teams", teams_path %></li>
+            <li><%#= link_to "Prospects", draftees_path %></li>
           </ul>
 
             <% if current_user.present? && current_user.email == "admin@example.com" %>
