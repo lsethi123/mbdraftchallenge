@@ -5,4 +5,15 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  # validates :is_understood, :presence => true
+
+  # before_create :set_boolean
+
+  # def set_boolean
+  #   is_understood = 'true'
+  #   save
+  # end
+
+
 end
