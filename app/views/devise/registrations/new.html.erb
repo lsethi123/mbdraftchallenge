@@ -7,20 +7,26 @@
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
     <%= f.input :password_confirmation, required: true %>
-    <%#= f.input :is_understood, label: "I have read the rules and have created an account at http://MillionaireBracketFantasyFootball.com. This must be checked in order to have a valid entry.", required: true %>
+    <div class="g-recaptcha" data-sitekey="6LcrgRoUAAAAAKyLUXE97T_TAGQ-H1qJ8yci0Fpy" align="left"></div>
   </div>
 
-  <p>
+<!--   <p> -->
   <!-- reCaptcha -->
-  <form action="?" method="POST" align="right">
-    <div class="g-recaptcha" data-sitekey="6LcrgRoUAAAAAKyLUXE97T_TAGQ-H1qJ8yci0Fpy" align="left"></div>
+  <!-- form action="?" method="POST" align="right"> -->
+    <!-- <div class="g-recaptcha" data-sitekey="6LcrgRoUAAAAAKyLUXE97T_TAGQ-H1qJ8yci0Fpy" align="left"></div> -->
     <br/>
-    <!-- <input type="submit" value="Submit" > -->
-    <%= f.button :submit, "Sign Up" %>
-  </form>
-  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-          async defer>
-  </script>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+        <p>By clicking the Sign Up button, you agree that you have read the <a href="#">rules</a> and that you must create an account at <a href="https://www.millionairebracketfantasyfootball.com/">The Millionaire Bracket Fantasy Football League</a> in order to collect any prizes.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+        <%= f.button :submit, "Sign Up", class: "btn btn-success btn-lg" %>
+      </div>
+    </div>
+  <!-- </form> -->
+
   </p>
 
   <!-- <div class="form-actions">
